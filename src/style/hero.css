@@ -656,6 +656,7 @@
 
   .hero-copy {
     max-width: 390px;
+    transform: translate(4px,33px);
   }
   
   .hero-text{
@@ -689,7 +690,7 @@
   }
 
   .hero-actions {
-    margin-top: 122px;
+    margin-top: 99px;
 
     align-items: stretch;
     flex-direction: column;
@@ -780,7 +781,7 @@
   }
 
   .hero-info-item {
-    padding: 12px 7px;
+    padding: 11px 25px;
 
     grid-template-columns: 34px minmax(0, 1fr);
     gap: 8px;

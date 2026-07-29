@@ -160,7 +160,10 @@ function Contact() {
   return (
     <section className="contact" id="contacto">
       <div className="contact-container">
-        <div className="contact-info">
+
+        {/* ENCABEZADO */}
+        <div className="contact-heading">
+
           <span className="contact-eyebrow">
             Contacto
           </span>
@@ -175,22 +178,16 @@ function Contact() {
             de atención que te resulte más cómodo.
           </p>
 
-          <div className="contact-data">
-            {contactChannels.map((channel) => (
-              <ContactCard
-                key={channel.id}
-                {...channel}
-              />
-            ))}
-          </div>
         </div>
 
+        {/* FORMULARIO */}
         <form
           ref={form}
           onSubmit={sendEmail}
           className="contact-form"
           aria-busy={loading}
         >
+
           <header className="contact-form__header">
             <span>Formulario de contacto</span>
 
@@ -272,7 +269,19 @@ function Contact() {
               No pudimos enviar tu consulta. Inténtalo nuevamente.
             </div>
           )}
+
         </form>
+
+        {/* TARJETAS */}
+        <div className="contact-data">
+          {contactChannels.map((channel) => (
+            <ContactCard
+              key={channel.id}
+              {...channel}
+            />
+          ))}
+        </div>
+
       </div>
     </section>
   );

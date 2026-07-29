@@ -334,95 +334,537 @@
 }
 
 
-/* =========================
-   TABLET
-========================= */
+/* =========================================================
+   ANIMACIÓN
+========================================================= */
 
-@media (max-width: 992px){
-
-  .lifestyle{
-    padding: 90px 0;
-  }
-
-  .lifestyle-container{
-    grid-template-columns: 1fr;
-    gap: 56px;
-  }
-
-  .lifestyle-content{
-    text-align: center;
-  }
-
-  .lifestyle-content h2,
-  .lifestyle-content > p{
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .lifestyle-image{
-    justify-self: center;
-    justify-content: center;
-  }
-
-  .point-card:hover{
-    transform: translateY(-4px);
-  }
-}
-
-/* =========================
-   MEDIA QUERIES*/
 @keyframes pointSlideIn{
+
   0%{
-    opacity: 0;
-    transform: translateX(-45px);
-    filter: blur(6px);
+    opacity:0;
+
+    transform:translateX(-45px);
+
+    filter:blur(6px);
   }
 
   100%{
-    opacity: 1;
-    transform: translateX(0);
-    filter: blur(0);
+    opacity:1;
+
+    transform:translateX(0);
+
+    filter:blur(0);
   }
 }
-@media (max-width: 900px){ .lifestyle{ padding: 90px 0; }
+
+
+/* =========================================================
+   NOTEBOOK GRANDE
+   HASTA 1560px
+========================================================= */
+
+@media (max-width:1560px){
+
+  .lifestyle{
+    padding:110px 0;
+  }
 
   .lifestyle-container{
-    grid-template-columns: 1fr;
-    gap: 56px; 
+    width:min(1160px, calc(100% - 64px));
+
+    gap:70px;
   }
-  .lifestyle-content{
-    text-align: center;
+
+  .lifestyle-content h2{
+    font-size:clamp(2.4rem, 3.7vw, 3.65rem);
   }
-  .lifestyle-content h2,
+
   .lifestyle-content > p{
-    margin-left: auto;
-    margin-right: auto;
+    font-size:1rem;
+    line-height:1.75;
   }
-  .lifestyle-image{
-    justify-content: center;
+
+  .lifestyle-points{
+    margin-top:34px;
+
+    gap:16px;
   }
-  .point-card:hover{
-    transform: translateY(-4px);
+
+  .point-card{
+    padding:21px 25px 21px 29px;
+
+    border-radius:23px;
+  }
+
+  .lifestyle-image img{
+    max-width:410px;
+
+    border-radius:38px;
+  }
+
+  .memory-phrase{
+    top:-70px;
+
+    font-size:3.15rem;
   }
 }
 
-@media (max-width: 992px){ .lifestyle-container{ grid-template-columns: 1fr; }
-  .lifestyle-image{
-    justify-self: center;
+
+/* =========================================================
+   NOTEBOOK PEQUEÑO
+   1366 x 768 APROX.
+========================================================= */
+
+@media (max-width:1366px){
+
+  .lifestyle{
+    padding:92px 0;
+  }
+
+  .lifestyle-container{
+    width:min(1080px, calc(100% - 56px));
+    max-width:none;
+
+    grid-template-columns:
+      minmax(0, 1.05fr)
+      minmax(360px, .95fr);
+
+    gap:52px;
+  }
+
+  /* CONTENIDO */
+
+  .lifestyle-content span{
+    margin-bottom:8px;
+
+    font-size:.68rem;
+    letter-spacing:3px;
+  }
+
+  .lifestyle-content h2{
+    max-width:500px;
+    margin:10px 0 18px;
+
+    font-size:clamp(2.3rem, 3.5vw, 3.25rem);
+    line-height:1.03;
+    letter-spacing:-1.6px;
+  }
+
+  .lifestyle-content > p{
+    max-width:540px;
+
+    font-size:.92rem;
+    line-height:1.65;
+  }
+
+  /* TARJETAS */
+
+  .lifestyle-points{
+    margin-top:27px;
+
+    gap:13px;
+  }
+
+  .point-card{
+    padding:18px 21px 18px 25px;
+
+    border-radius:20px;
+  }
+
+  .point-card::before{
+    top:22%;
+
+    width:5px;
+    height:56%;
+  }
+
+  .point-card:hover{
+    transform:translateX(5px);
+  }
+
+  .point-card h3{
+    margin-bottom:6px;
+
+    font-size:1rem;
+    line-height:1.25;
+  }
+
+  .point-card p{
+    font-size:.82rem;
+    line-height:1.5;
+  }
+
+  /* IMAGEN */
+
+  .lifestyle-image-wrapper{
+    padding-top:25px;
+  }
+
+  .lifestyle-image img{
+    max-width:370px;
+
+    border-radius:33px;
+  }
+
+  .lifestyle-image::before{
+    width:108%;
+    height:108%;
+
+    border-radius:40px;
+
+    filter:blur(14px);
+  }
+
+  /* FRASE */
+
+  .memory-phrase{
+    top:-60px;
+
+    font-size:2.75rem;
+  }
+
+  .memory-phrase::after{
+    left:14px;
+    right:7px;
+    bottom:-5px;
+
+    height:3px;
   }
 }
-@media (max-width: 768px){
+
+
+/* =========================================================
+   NOTEBOOK PEQUEÑO CON POCA ALTURA
+========================================================= */
+
+@media (max-width:1366px) and (max-height:800px){
+
   .lifestyle{
-    padding: 80px 0;
+    padding:72px 0;
   }
+
+  .lifestyle-container{
+    gap:42px;
+  }
+
   .lifestyle-content h2{
-    font-size: 2.1rem;
+    margin-bottom:14px;
+
+    font-size:clamp(2.1rem, 3.2vw, 2.9rem);
   }
-  .lifestyle-image{
-    display: flex;
-    justify-content: center;
+
+  .lifestyle-content > p{
+    font-size:.86rem;
+    line-height:1.55;
   }
+
+  .lifestyle-points{
+    margin-top:21px;
+
+    gap:10px;
+  }
+
+  .point-card{
+    padding:15px 19px 15px 23px;
+
+    border-radius:18px;
+  }
+
+  .point-card h3{
+    margin-bottom:4px;
+
+    font-size:.93rem;
+  }
+
+  .point-card p{
+    font-size:.76rem;
+    line-height:1.42;
+  }
+
+  .lifestyle-image-wrapper{
+    padding-top:18px;
+  }
+
   .lifestyle-image img{
-    max-width: 340px;
+    max-width:335px;
+
+    border-radius:29px;
+  }
+
+  .memory-phrase{
+    top:-48px;
+
+    font-size:2.35rem;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   HASTA 992px
+========================================================= */
+
+@media (max-width:992px){
+
+  .lifestyle{
+    padding:90px 0;
+  }
+
+  .lifestyle-container{
+    width:min(760px, calc(100% - 48px));
+
+    grid-template-columns:1fr;
+    gap:82px;
+  }
+
+  .lifestyle-content{
+    text-align:center;
+  }
+
+  .lifestyle-content h2{
+    max-width:620px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .lifestyle-content > p{
+    max-width:650px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .lifestyle-points{
+    max-width:680px;
+    margin-left:auto;
+    margin-right:auto;
+
+    text-align:left;
+  }
+
+  .lifestyle-image-wrapper{
+    width:100%;
+  }
+
+  .lifestyle-image{
+    justify-self:center;
+    justify-content:center;
+  }
+
+  .point-card:hover{
+    transform:translateY(-4px);
+  }
+
+  .memory-phrase{
+    top:-52px;
+  }
+}
+
+
+/* =========================================================
+   TABLET PEQUEÑA
+   HASTA 900px
+========================================================= */
+
+@media (max-width:900px){
+
+  .lifestyle-container{
+    width:min(700px, calc(100% - 40px));
+
+    gap:70px;
+  }
+
+  .lifestyle-content h2{
+    font-size:clamp(2.35rem, 6vw, 3.2rem);
+  }
+
+  .lifestyle-content > p{
+    font-size:.96rem;
+    line-height:1.7;
+  }
+
+  .lifestyle-points{
+    margin-top:32px;
+  }
+
+  .lifestyle-image img{
+    max-width:390px;
+  }
+}
+
+
+/* =========================================================
+   MÓVIL
+   HASTA 768px
+========================================================= */
+
+@media (max-width:768px){
+
+  .lifestyle{
+    padding:72px 0;
+  }
+
+  .lifestyle-container{
+    width:calc(100% - 32px);
+
+    gap:68px;
+  }
+
+  .lifestyle-content span{
+    font-size:.65rem;
+    letter-spacing:2.4px;
+  }
+
+  .lifestyle-content h2{
+    margin:10px auto 18px;
+
+    font-size:clamp(2.05rem, 9vw, 2.75rem);
+    line-height:1.05;
+    letter-spacing:-1.4px;
+  }
+
+  .lifestyle-content > p{
+    font-size:.91rem;
+    line-height:1.65;
+  }
+
+  .lifestyle-points{
+    margin-top:28px;
+
+    gap:13px;
+  }
+
+  .point-card{
+    padding:19px 20px 19px 25px;
+
+    border-radius:20px;
+  }
+
+  .point-card:hover{
+    transform:none;
+  }
+
+  .point-card h3{
+    font-size:1rem;
+  }
+
+  .point-card p{
+    font-size:.82rem;
+    line-height:1.5;
+  }
+
+  .lifestyle-image-wrapper{
+    padding-top:48px;
+  }
+
+  .lifestyle-image{
+    display:flex;
+    justify-content:center;
+  }
+
+  .lifestyle-image img{
+    max-width:340px;
+
+    border-radius:30px;
+  }
+
+  .memory-phrase{
+    top:-20px;
+
+    font-size:2.2rem;
+
+    white-space:nowrap;
+  }
+}
+
+
+/* =========================================================
+   MÓVIL PEQUEÑO
+   HASTA 420px
+========================================================= */
+
+@media (max-width:420px){
+
+  .lifestyle{
+    padding:72px 0;
+  }
+
+  .lifestyle-container{
+    width:calc(100% - 24px);
+
+    gap:58px;
+  }
+
+  .lifestyle-content h2{
+    font-size:clamp(1.95rem, 10vw, 2.45rem);
+  }
+
+  .lifestyle-content > p{
+    font-size:.86rem;
+    line-height:1.6;
+  }
+
+  .lifestyle-points{
+    gap:11px;
+  }
+
+  .point-card{
+    padding:17px 17px 17px 22px;
+
+    border-radius:18px;
+  }
+
+  .point-card h3{
+    font-size:.94rem;
+  }
+
+  .point-card p{
+    font-size:.77rem;
+  }
+
+  .lifestyle-image img{
+    max-width:300px;
+
+    border-radius:26px;
+  }
+
+  .memory-phrase{
+    top:-12px;
+
+    font-size:1.85rem;
+  }
+
+  .memory-phrase::after{
+    bottom:-4px;
+
+    height:3px;
+  }
+}
+
+
+/* =========================================================
+   MÓVIL MUY PEQUEÑO
+   HASTA 360px
+========================================================= */
+
+@media (max-width:360px){
+
+  .lifestyle-container{
+    width:calc(100% - 20px);
+  }
+
+  .lifestyle-content h2{
+    font-size:1.9rem;
+  }
+
+  .point-card{
+    padding:16px 15px 16px 20px;
+  }
+
+  .lifestyle-image img{
+    max-width:270px;
+  }
+
+  .memory-phrase{
+    font-size:1.65rem;
   }
 }
