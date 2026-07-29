@@ -435,11 +435,188 @@
   color: #a82d2d;
 }
 
+
+/* =========================================================
+   NOTEBOOK PEQUEÑO
+   1366 x 768 aprox.
+========================================================= */
+
+@media (max-width: 1366px){
+
+  .contact{
+    padding: 88px 0;
+  }
+
+  .contact-container{
+    width: min(1080px, calc(100% - 56px));
+
+    grid-template-columns:
+      minmax(0, 1.05fr)
+      minmax(380px, 0.95fr);
+
+    align-items: center;
+    gap: 46px;
+  }
+
+  /* =======================================================
+     INFORMACIÓN PRINCIPAL
+  ======================================================= */
+
+  .contact-eyebrow{
+    margin-bottom: 13px;
+
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+  }
+
+  .contact-eyebrow::before{
+    width: 26px;
+  }
+
+  .contact-info h2{
+    max-width: 520px;
+
+    font-size: clamp(2.6rem, 3.7vw, 3.45rem);
+    line-height: 0.99;
+  }
+
+  .contact-description{
+    max-width: 520px;
+    margin-top: 20px;
+
+    font-size: 0.91rem;
+    line-height: 1.62;
+  }
+
+  /* =======================================================
+     TARJETAS DE CONTACTO
+  ======================================================= */
+
+  .contact-data{
+    margin-top: 28px;
+
+    gap: 12px;
+  }
+
+  .contact-card{
+    min-height: 130px;
+    padding: 17px;
+
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 12px;
+
+    border-radius: 18px;
+  }
+
+  .contact-icon{
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    font-size: 1.05rem;
+  }
+
+  .contact-card__label{
+    margin-bottom: 5px;
+
+    font-size: 0.58rem;
+  }
+
+  .contact-card__title{
+    font-size: 0.86rem;
+  }
+
+  .contact-card__value{
+    margin-top: 4px;
+
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .contact-card__action{
+    margin-top: 9px;
+
+    font-size: 0.66rem;
+  }
+
+  /* =======================================================
+     FORMULARIO
+  ======================================================= */
+
+  .contact-form{
+    padding: 29px;
+
+    gap: 14px;
+
+    border-radius: 25px;
+  }
+
+  .contact-form__header{
+    margin-bottom: 3px;
+  }
+
+  .contact-form__header > span{
+    margin-bottom: 7px;
+
+    font-size: 0.61rem;
+  }
+
+  .contact-form__header h3{
+    font-size: clamp(1.45rem, 2vw, 1.8rem);
+  }
+
+  .contact-form__header p{
+    margin-top: 7px;
+
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  .contact-field{
+    gap: 6px;
+  }
+
+  .contact-field label{
+    font-size: 0.7rem;
+  }
+
+  .contact-field input,
+  .contact-field textarea{
+    padding: 12px 14px;
+
+    border-radius: 12px;
+
+    font-size: 0.84rem;
+  }
+
+  .contact-field input{
+    min-height: 46px;
+  }
+
+  .contact-field textarea{
+    min-height: 112px;
+  }
+
+  .contact-form button{
+    min-height: 48px;
+    padding: 11px 18px;
+
+    font-size: 0.84rem;
+  }
+
+  .contact-alert{
+    padding: 11px 13px;
+
+    font-size: 0.78rem;
+  }
+}
+
 /* =========================================================
    NOTEBOOK Y TABLET
 ========================================================= */
 
-@media (max-width: 1180px) {
+@media (max-width: 900px) {
   .contact {
     padding: 100px 0;
   }

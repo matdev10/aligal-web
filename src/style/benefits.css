@@ -306,6 +306,125 @@
     translateY(0);
 }
 
+
+
+
+
+
+/* =========================
+   NOTEBOOK PEQUEÑO
+   1366 x 768 aprox.
+========================= */
+
+@media (max-width: 1366px){
+
+  .benefits{
+    padding: 92px 0;
+  }
+
+  /* HEADER */
+
+  .section-header{
+    width: min(720px, calc(100% - 48px));
+
+    margin-bottom: 48px;
+  }
+
+  .section-header span{
+    margin-bottom: 11px;
+
+    font-size: 0.68rem;
+    letter-spacing: 2.4px;
+  }
+
+  .section-header h2{
+    margin-bottom: 15px;
+
+    font-size: clamp(2.2rem, 3.3vw, 3.2rem);
+    line-height: 1.03;
+    letter-spacing: -1.6px;
+  }
+
+  .section-header p{
+    font-size: 0.94rem;
+    line-height: 1.65;
+  }
+
+  /* GRID */
+
+  .benefits-grid{
+    width: min(1080px, calc(100% - 56px));
+    max-width: none;
+
+    gap: 18px;
+  }
+
+  /* TARJETAS */
+
+  .benefit-card{
+    padding: 25px 22px;
+
+    border-radius: 24px;
+  }
+
+  .benefit-card:hover{
+    transform: translateY(-6px);
+  }
+
+  .benefit-card::after{
+    left: 22px;
+
+    width: 92px;
+    height: 3px;
+  }
+
+  /* CABECERA DE CADA TARJETA */
+
+  .benefit-top{
+    margin-bottom: 19px;
+  }
+
+  .benefit-icon{
+    width: 54px;
+    height: 54px;
+
+    border-radius: 17px;
+  }
+
+  .benefit-icon svg{
+    width: 24px;
+    height: 24px;
+  }
+
+  .benefit-number{
+    font-size: 0.82rem;
+    letter-spacing: 1.5px;
+  }
+
+  /* TEXTO */
+
+  .benefit-card h3{
+    margin-bottom: 11px;
+
+    font-size: 1.14rem;
+    line-height: 1.2;
+  }
+
+  .benefit-card p{
+    font-size: 0.84rem;
+    line-height: 1.58;
+  }
+
+  .benefit-line{
+    width: 45px;
+    height: 3px;
+
+    margin-top: 20px;
+  }
+}
+
+
+
 /* =========================
    TABLET
 ========================= */

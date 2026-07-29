@@ -84,7 +84,7 @@
   z-index: 3;
   font-size: 3.5rem;
   font-family: 'Protest Riot', cursive;
-  color: #ff5e00;
+  color: #0a262a ;
   white-space: nowrap;
   text-shadow: 0 4px 14px rgba(0,0,0,.08);
 }
@@ -97,7 +97,7 @@
   bottom: -6px;
   height: 4px;
   border-radius: 999px;
-  background: linear-gradient(90deg, transparent, #ff5e00, transparent);
+  background: linear-gradient(90deg, transparent, #0a262a, transparent);
   opacity: .65;
 }
 /* mobil*/
@@ -202,7 +202,172 @@
 
 
 
+/* =========================
+   NOTEBOOK PEQUEÑO
+   1366 x 768 aprox.
+========================= */
 
+@media (max-width: 1366px){
+
+  .lifestyle{
+    padding: 92px 0;
+  }
+
+  .lifestyle-container{
+    width: min(1080px, calc(100% - 56px));
+    max-width: none;
+
+    grid-template-columns:
+      minmax(0, 1.05fr)
+      minmax(380px, 0.95fr);
+
+    gap: 52px;
+  }
+
+  /* =========================
+     CONTENIDO
+  ========================= */
+
+  .lifestyle-content span{
+    margin-bottom: 8px;
+
+    font-size: 0.68rem;
+    letter-spacing: 3px;
+  }
+
+  .lifestyle-content h2{
+    max-width: 500px;
+    margin: 10px 0 18px;
+
+    font-size: clamp(2.3rem, 3.5vw, 3.25rem);
+    line-height: 1.03;
+    letter-spacing: -1.6px;
+  }
+
+  .lifestyle-content > p{
+    max-width: 540px;
+
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  /* =========================
+     TARJETAS
+  ========================= */
+
+  .lifestyle-points{
+    margin-top: 27px;
+
+    gap: 13px;
+  }
+
+  .point-card{
+    padding: 18px 21px 18px 25px;
+
+    border-radius: 20px;
+  }
+
+  .point-card::before{
+    top: 22%;
+
+    width: 5px;
+    height: 56%;
+  }
+
+  .point-card:hover{
+    transform: translateX(5px);
+  }
+
+  /* Si dentro de las tarjetas tienes títulos y párrafos */
+  .point-card h3{
+    margin-bottom: 6px;
+
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+
+  .point-card p{
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  /* =========================
+     IMAGEN
+  ========================= */
+
+  .lifestyle-image-wrapper{
+    padding-top: 25px;
+  }
+
+  .lifestyle-image img{
+    max-width: 370px;
+
+    border-radius: 33px;
+  }
+
+  .lifestyle-image::before{
+    width: 108%;
+    height: 108%;
+
+    border-radius: 40px;
+
+    filter: blur(14px);
+  }
+
+  /* =========================
+     FRASE SOBRE LA IMAGEN
+  ========================= */
+
+  .memory-phrase{
+    top: -60px;
+
+    font-size: 2.75rem;
+  }
+
+  .memory-phrase::after{
+    left: 14px;
+    right: 7px;
+    bottom: -5px;
+
+    height: 3px;
+  }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 992px){
+
+  .lifestyle{
+    padding: 90px 0;
+  }
+
+  .lifestyle-container{
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .lifestyle-content{
+    text-align: center;
+  }
+
+  .lifestyle-content h2,
+  .lifestyle-content > p{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .lifestyle-image{
+    justify-self: center;
+    justify-content: center;
+  }
+
+  .point-card:hover{
+    transform: translateY(-4px);
+  }
+}
 
 /* =========================
    MEDIA QUERIES*/

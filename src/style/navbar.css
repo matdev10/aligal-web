@@ -338,7 +338,7 @@
 @media (max-width: 1366px){
 
   .navbar-container{
-    width: min(880px, calc(100% - 40px));
+    width: min(780px, calc(100% - 40px));
     height: 54px;
 
     grid-template-columns:
