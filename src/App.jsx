@@ -17,6 +17,7 @@ import CartDrawer from "./components/cart/CartDrawer";
 import PaymentSuccessPage from "./pages/PaymentSuccessPage";
 import PaymentPendingPage from "./pages/PaymentPendingPage";
 import PaymentFailurePage from "./pages/PaymentFailurePage";
+import AnimatedTitle from "./components/AnimatedTitle";
 
 function LandingPage() {
   return (
@@ -25,6 +26,7 @@ function LandingPage() {
       <Benefits />
       <Lifestyle />
       <Contact />
+      <AnimatedTitle />
     </>
   );
 }
