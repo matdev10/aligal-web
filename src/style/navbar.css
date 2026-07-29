@@ -338,7 +338,7 @@
 @media (max-width: 1366px){
 
   .navbar-container{
-    width: min(780px, calc(100% - 40px));
+    width: min(700px, calc(100% - 40px));
     height: 54px;
 
     grid-template-columns:
@@ -350,7 +350,7 @@
   }
 
   .logo img{
-    width: 38px;
+    width: 35px;
   }
 
   .nav-links{

@@ -18,6 +18,7 @@ import PaymentSuccessPage from "./pages/PaymentSuccessPage";
 import PaymentPendingPage from "./pages/PaymentPendingPage";
 import PaymentFailurePage from "./pages/PaymentFailurePage";
 import AnimatedTitle from "./components/AnimatedTitle";
+import SiteFooter from "./components/SiteFooter";
 
 function LandingPage() {
   return (
@@ -26,7 +27,7 @@ function LandingPage() {
       <Benefits />
       <Lifestyle />
       <Contact />
-      <AnimatedTitle />
+      <SiteFooter />
     </>
   );
 }
@@ -34,6 +35,8 @@ function LandingPage() {
 function App() {
   return (
     <>
+      <AnimatedTitle />
+
       <Navbar />
       <CartDrawer />
       <WhatsAppButton />

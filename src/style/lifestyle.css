@@ -73,12 +73,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 34px;
+
 }
 
 .memory-phrase{
   position: absolute;
-  top: -80px;
+  top: -50px;
   left: 50%;
   transform: translateX(-50%) rotate(-2deg);
   z-index: 3;
@@ -100,19 +100,6 @@
   background: linear-gradient(90deg, transparent, #0a262a, transparent);
   opacity: .65;
 }
-/* mobil*/
-@media (max-width: 768px){
-  .lifestyle-image-wrapper{
-    padding-top: 48px;
-  }
-
-  .memory-phrase{
-    top: -20px;
-    font-size: 2.2rem;
-    white-space: nowrap;
-  }
-}
-
 
 
 
@@ -124,13 +111,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  bottom: -60px;
 }
 
 .lifestyle-image img{
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 440px;
+  max-width: 340px;
   border-radius: 42px;
   object-fit: cover;
 }
@@ -369,14 +357,17 @@
     padding:110px 0;
   }
 
+  .lifestyle-content{
+    transform: translate(35px, -10px);
+  }
+
   .lifestyle-container{
     width:min(1160px, calc(100% - 64px));
-
-    gap:70px;
+    gap:10px;
   }
 
   .lifestyle-content h2{
-    font-size:clamp(2.4rem, 3.7vw, 3.65rem);
+    font-size:clamp(2.4rem, 3.7vw, 2.5rem);
   }
 
   .lifestyle-content > p{
@@ -396,16 +387,34 @@
     border-radius:23px;
   }
 
-  .lifestyle-image img{
-    max-width:410px;
-
-    border-radius:38px;
+  /* IMAGEN */
+  .lifestyle-image {
+   bottom: -50px;
+   left: 50px;
+  }
+  .lifestyle-image-wrapper{
+    padding-top:25px;
   }
 
-  .memory-phrase{
-    top:-70px;
+  .lifestyle-image img{
+    max-width:280px;
+    border-radius:33px;
+  }
 
-    font-size:3.15rem;
+  .lifestyle-image::before{
+    width:108%;
+    height:108%;
+    border-radius:40px;
+    filter:blur(14px);
+  }
+
+
+  /* FRASE */
+
+  .memory-phrase{
+    top:-20px;
+    right:80px;
+    font-size:2.5rem;
   }
 }
 
@@ -418,7 +427,7 @@
 @media (max-width:1366px){
 
   .lifestyle{
-    padding:92px 0;
+    padding:72px 0;
   }
 
   .lifestyle-container{
@@ -433,6 +442,10 @@
   }
 
   /* CONTENIDO */
+
+  .lifestyle-content{
+    transform: translate(35px, -20px);
+}
 
   .lifestyle-content span{
     margin-bottom:8px;
@@ -495,13 +508,16 @@
   }
 
   /* IMAGEN */
-
+  .lifestyle-image {
+   bottom: -29px;
+   left: 20px;
+  }
   .lifestyle-image-wrapper{
     padding-top:25px;
   }
 
   .lifestyle-image img{
-    max-width:370px;
+    max-width:230px;
 
     border-radius:33px;
   }
@@ -518,9 +534,9 @@
   /* FRASE */
 
   .memory-phrase{
-    top:-60px;
-
-    font-size:2.75rem;
+    top:-40px;
+    right: -40px;
+    font-size:2.5rem;
   }
 
   .memory-phrase::after{
@@ -586,7 +602,7 @@
   }
 
   .lifestyle-image img{
-    max-width:335px;
+    max-width:270px;
 
     border-radius:29px;
   }
@@ -598,66 +614,88 @@
   }
 }
 
-
 /* =========================================================
    TABLET
-   HASTA 992px
 ========================================================= */
 
 @media (max-width:992px){
 
   .lifestyle{
-    padding:90px 0;
+    padding:72px 0;
   }
 
   .lifestyle-container{
     width:min(760px, calc(100% - 48px));
 
     grid-template-columns:1fr;
-    gap:82px;
+    gap:70px;
   }
 
+  /* RESETEA LOS AJUSTES DE ESCRITORIO */
+
   .lifestyle-content{
+    transform:none;
+
     text-align:center;
   }
 
   .lifestyle-content h2{
     max-width:620px;
-    margin-left:auto;
-    margin-right:auto;
+
+    margin:12px auto 20px;
   }
 
   .lifestyle-content > p{
     max-width:650px;
-    margin-left:auto;
-    margin-right:auto;
+
+    margin:0 auto;
   }
 
   .lifestyle-points{
     max-width:680px;
-    margin-left:auto;
-    margin-right:auto;
+
+    margin:30px auto 0;
 
     text-align:left;
   }
 
   .lifestyle-image-wrapper{
     width:100%;
+
+    padding-top:35px;
   }
 
   .lifestyle-image{
-    justify-self:center;
+
+    position:relative;
+
+    left:0;
+    bottom:0;
+
+    display:flex;
     justify-content:center;
+    align-items:center;
+  }
+
+  .lifestyle-image img{
+    max-width:360px;
+  }
+
+  .memory-phrase{
+    top:-32px;
+    left:50%;
+
+    transform:translateX(-50%) rotate(-2deg);
+
+    font-size:2.6rem;
   }
 
   .point-card:hover{
     transform:translateY(-4px);
   }
 
-  .memory-phrase{
-    top:-52px;
-  }
 }
+
 
 
 /* =========================================================
@@ -694,7 +732,6 @@
 
 /* =========================================================
    MÓVIL
-   HASTA 768px
 ========================================================= */
 
 @media (max-width:768px){
@@ -706,7 +743,17 @@
   .lifestyle-container{
     width:calc(100% - 32px);
 
-    gap:68px;
+    grid-template-columns:1fr;
+
+    gap:58px;
+  }
+
+  /* MUY IMPORTANTE */
+
+  .lifestyle-content{
+    transform:none;
+
+    text-align:center;
   }
 
   .lifestyle-content span{
@@ -717,65 +764,66 @@
   .lifestyle-content h2{
     margin:10px auto 18px;
 
-    font-size:clamp(2.05rem, 9vw, 2.75rem);
-    line-height:1.05;
-    letter-spacing:-1.4px;
+    font-size:clamp(2rem,9vw,2.7rem);
   }
 
   .lifestyle-content > p{
-    font-size:.91rem;
+    margin:0 auto;
+
+    font-size:.9rem;
     line-height:1.65;
   }
 
   .lifestyle-points{
-    margin-top:28px;
+    margin-top:26px;
 
-    gap:13px;
+    gap:12px;
   }
 
   .point-card{
-    padding:19px 20px 19px 25px;
-
-    border-radius:20px;
+    padding:19px 20px 19px 24px;
   }
 
   .point-card:hover{
     transform:none;
   }
 
-  .point-card h3{
-    font-size:1rem;
-  }
-
-  .point-card p{
-    font-size:.82rem;
-    line-height:1.5;
-  }
+  /* IMAGEN */
 
   .lifestyle-image-wrapper{
-    padding-top:48px;
+    padding-top:42px;
   }
 
   .lifestyle-image{
+
+    left:0;
+    bottom:0;
+
     display:flex;
     justify-content:center;
   }
 
   .lifestyle-image img{
-    max-width:340px;
+    max-width:320px;
 
-    border-radius:30px;
+    border-radius:28px;
   }
 
-  .memory-phrase{
-    top:-20px;
+  /* FRASE */
 
-    font-size:2.2rem;
+  .memory-phrase{
+
+    top:-12px;
+    left:50%;
+
+    transform:translateX(-50%) rotate(-2deg);
+
+    font-size:2rem;
 
     white-space:nowrap;
   }
-}
 
+}
 
 /* =========================================================
    MÓVIL PEQUEÑO
