@@ -22,9 +22,9 @@
   z-index: 1001;
 
   width: min(1180px, calc(100% - 32px));
-  height: 68px;
+  height: 58px;
 
-  padding: 0 10px 0 20px;
+  padding: 0 15px 0 15px;
 
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -40,7 +40,7 @@
       #041619 100%
     );
 
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid #bdfdfaa1;
   border-radius: 999px;
 
   box-shadow:
@@ -68,7 +68,7 @@
 .logo img{
   display: block;
 
-  width: 52px;
+  width: 44px;
   height: auto;
 }
 
@@ -144,7 +144,7 @@
   justify-content: center;
   gap: 8px;
 
-  padding: 10px 18px;
+  padding: 8px 18px;
 
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 999px;
@@ -271,32 +271,36 @@
 
 
 /* =========================================================
-   NOTEBOOK
-   1024px a 1366px aprox.
+   NOTEBOOK GRANDE
+   Hasta 1566px
 ========================================================= */
 
-@media (max-width: 1366px){
+@media (max-width: 1566px){
 
   .navbar{
     top: 16px;
   }
 
   .navbar-container{
-    width: min(880px, calc(100% - 40px));
-    height: 54px;
+    width: min(1040px, calc(100% - 40px));
+    height: 60px;
 
     padding: 0 10px 0 18px;
 
-    grid-template-columns: minmax(48px, 1fr) auto minmax(160px, 1fr);
+    grid-template-columns:
+      minmax(48px, 1fr)
+      auto
+      minmax(160px, 1fr);
+
     gap: 18px;
   }
 
   .logo img{
-    width: 38px;
+    width: 42px;
   }
 
   .nav-links{
-    gap: 22px;
+    gap: 24px;
   }
 
   .nav-links a{
@@ -309,7 +313,6 @@
 
   .cart-btn{
     padding: 9px 15px;
-
     font-size: 13px;
   }
 
@@ -326,6 +329,55 @@
   }
 }
 
+
+/* =========================================================
+   NOTEBOOK PEQUEÑO
+   Hasta 1366px
+========================================================= */
+
+@media (max-width: 1366px){
+
+  .navbar-container{
+    width: min(880px, calc(100% - 40px));
+    height: 54px;
+
+    grid-template-columns:
+      minmax(42px, 1fr)
+      auto
+      minmax(145px, 1fr);
+
+    gap: 14px;
+  }
+
+  .logo img{
+    width: 38px;
+  }
+
+  .nav-links{
+    gap: 18px;
+  }
+
+  .nav-links a{
+    font-size: 13px;
+  }
+
+  .cart-btn{
+    padding: 8px 13px;
+    font-size: 12px;
+  }
+
+  .cart-btn svg{
+    width: 16px;
+    height: 16px;
+  }
+
+  .cart-badge{
+    min-width: 20px;
+    height: 20px;
+
+    font-size: 10px;
+  }
+}
 
 
 /* =========================================================
