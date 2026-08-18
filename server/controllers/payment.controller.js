@@ -16,6 +16,8 @@ const separateCustomerName = (fullName = "") => {
   };
 };
 
+
+
 const normalizeCartItems = (items) => {
   const productsMap = new Map();
 

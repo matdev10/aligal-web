@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 import "../style/site-footer.css";
 
 function SiteFooter() {
@@ -9,6 +11,12 @@ function SiteFooter() {
         <p className="site-footer__copyright">
           © {currentYear} Cerebria®. Todos los derechos reservados.
         </p>
+
+        <div className="site-footer__legal">
+          <Link to="/politica-de-privacidad">
+            Política de Privacidad
+          </Link>
+        </div>
 
         <p className="site-footer__credit">
           Diseño y desarrollo por{" "}

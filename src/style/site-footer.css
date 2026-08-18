@@ -2,61 +2,93 @@
    FOOTER
 ========================================================= */
 
-.site-footer{
-  width:100%;
-  padding:22px 0;
+.site-footer {
+  width: 100%;
+  padding: 22px 0;
 
-  border-top:1px solid rgba(143,214,210,.12);
+  border-top: 1px solid rgba(143, 214, 210, 0.12);
 
-  background:#041719;
+  background: #041719;
 }
 
-.site-footer__container{
-  width:min(1180px, calc(100% - 48px));
-  margin:0 auto;
+.site-footer__container {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
-.site-footer p{
-  margin:0;
+.site-footer p {
+  margin: 0;
 }
 
-.site-footer__copyright{
-  color:rgba(255,255,255,.58);
+.site-footer__copyright,
+.site-footer__credit {
+  color: rgba(255, 255, 255, 0.58);
 
-  font-size:.78rem;
-  line-height:1.5;
+  font-size: 0.78rem;
+  line-height: 1.5;
 }
 
-.site-footer__credit{
-  color:rgba(255,255,255,.58);
 
-  font-size:.78rem;
-  line-height:1.5;
+/* =========================================================
+   POLÍTICA DE PRIVACIDAD
+========================================================= */
+
+.site-footer__legal {
+  display: flex;
+  align-items: center;
 }
 
-.site-footer__credit a{
-  color:#8fd6d2;
+.site-footer__legal a {
+  color: rgba(255, 255, 255, 0.58);
 
-  font-weight:800;
+  font-size: 0.78rem;
+  line-height: 1.5;
+
+  text-decoration: none;
 
   transition:
-    color .2s ease,
-    opacity .2s ease;
+    color 0.2s ease,
+    opacity 0.2s ease;
 }
 
-.site-footer__credit a:hover{
-  color:#ffffff;
+.site-footer__legal a:hover {
+  color: #8fd6d2;
 }
 
-.site-footer__credit a:focus-visible{
-  outline:2px solid rgba(143,214,210,.55);
-  outline-offset:4px;
-  border-radius:3px;
+.site-footer__legal a:focus-visible {
+  outline: 2px solid rgba(143, 214, 210, 0.55);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+
+/* =========================================================
+   CRÉDITO
+========================================================= */
+
+.site-footer__credit a {
+  color: #8fd6d2;
+
+  font-weight: 800;
+
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.site-footer__credit a:hover {
+  opacity: 0.8;
+}
+
+.site-footer__credit a:focus-visible {
+  outline: 2px solid rgba(143, 214, 210, 0.55);
+  outline-offset: 4px;
+  border-radius: 3px;
 }
 
 
@@ -64,23 +96,24 @@
    MÓVIL
 ========================================================= */
 
-@media (max-width:700px){
+@media (max-width: 700px) {
 
-  .site-footer{
-    padding:20px 0;
+  .site-footer {
+    padding: 20px 0;
   }
 
-  .site-footer__container{
-    width:calc(100% - 30px);
+  .site-footer__container {
+    width: calc(100% - 30px);
 
-    flex-direction:column;
-    gap:8px;
+    flex-direction: column;
+    gap: 8px;
 
-    text-align:center;
+    text-align: center;
   }
 
   .site-footer__copyright,
-  .site-footer__credit{
-    font-size:.72rem;
+  .site-footer__legal a,
+  .site-footer__credit {
+    font-size: 0.72rem;
   }
 }

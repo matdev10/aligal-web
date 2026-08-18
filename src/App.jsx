@@ -11,14 +11,17 @@ import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import ProductPage from "./pages/ProductPage";
 import BuyPage from "./pages/BuyPage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 import CartDrawer from "./components/cart/CartDrawer";
 
 import PaymentSuccessPage from "./pages/PaymentSuccessPage";
 import PaymentPendingPage from "./pages/PaymentPendingPage";
 import PaymentFailurePage from "./pages/PaymentFailurePage";
+
 import AnimatedTitle from "./components/AnimatedTitle";
 import SiteFooter from "./components/SiteFooter";
+
 
 function LandingPage() {
   return (
@@ -31,6 +34,7 @@ function LandingPage() {
     </>
   );
 }
+
 
 function App() {
   return (
@@ -47,12 +51,30 @@ function App() {
         <Route path="/comprar" element={<BuyPage />} />
         <Route path="/carrito" element={<CartPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
-        <Route path="/pago/exitoso" element={<PaymentSuccessPage />} />
-        <Route path="/pago/pendiente" element={<PaymentPendingPage />} />
-        <Route path="/pago/error" element={<PaymentFailurePage />} />
+
+        <Route
+          path="/politica-de-privacidad"
+          element={<PrivacyPolicy />}
+        />
+
+        <Route
+          path="/pago/exitoso"
+          element={<PaymentSuccessPage />}
+        />
+
+        <Route
+          path="/pago/pendiente"
+          element={<PaymentPendingPage />}
+        />
+
+        <Route
+          path="/pago/error"
+          element={<PaymentFailurePage />}
+        />
       </Routes>
     </>
   );
 }
+
 
 export default App;
