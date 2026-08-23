@@ -11,8 +11,8 @@
   --buy-soft: #f5f9f8;
   --buy-accent: #5fa8a5;
 
-  min-height: 100vh;
-  padding: 126px 24px 90px;
+  min-height: auto;
+  padding: 126px 24px 0px;
 
   background:
     radial-gradient(

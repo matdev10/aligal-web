@@ -123,6 +123,21 @@
   margin: 0;
 }
 
+.hero-line {
+  display: inline-block;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.hero-line-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-line-hidden {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
 .cerebria-font {
   margin-bottom: 22px;
 

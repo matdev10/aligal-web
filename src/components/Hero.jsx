@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import {
@@ -40,14 +41,48 @@ const productDetails = [
   },
 ];
 
+  const heroPhrases = [
+  {
+    line1: "Tu mente activa,",
+    line2: "tu vida plena",
+  },
+  {
+    line1: "Cuida tu mente,",
+    line2: "potencia tu bienestar",
+  },
+  {
+    line1: "Bienestar que",
+    line2: "acompaña tu día",
+  },
+
+];
+
+
+
 function Hero() {
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // 1. Iniciar fade-out
+      setIsVisible(false);
+
+      // 2. Cuando termina el fade-out, cambiar el texto y hacer fade-in
+      setTimeout(() => {
+        setPhraseIndex((current) => (current + 1) % heroPhrases.length);
+        setIsVisible(true);
+      }, 400); // debe coincidir con la duración del fade-out en CSS
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+
   return (
     <section className="hero" id="inicio">
       <picture className="hero-picture">
-        <source
-          media="(max-width: 768px)"
-          srcSet={heroMobil}
-        />
+        <source media="(max-width: 768px)" srcSet={heroMobil} />
 
         <img
           className="hero-full-image"
@@ -60,19 +95,17 @@ function Hero() {
         <div className="hero-copy">
           {/* Solamente este bloque se moverá en móvil */}
           <div className="hero-text">
-            <span className="hero-eyebrow">
-              Bienestar para tu día a día
-            </span>
+            <span className="hero-eyebrow">Bienestar para tu día a día</span>
 
             <h1>
-              <span className="cerebria-font">
-                Cerebria®
-              </span>
+              <span className="cerebria-font">Cerebria®</span>
 
-              <span className="hero-line">
-                Tu mente activa,
+              <span
+                className={`hero-line ${isVisible ? "hero-line-visible" : "hero-line-hidden"}`}
+              >
+                {heroPhrases[phraseIndex].line1}
                 <br />
-                tu vida plena
+                {heroPhrases[phraseIndex].line2}
               </span>
             </h1>
 
@@ -84,22 +117,12 @@ function Hero() {
 
           {/* Los botones mantienen su posición original */}
           <div className="hero-actions">
-            <Link
-              to="/comprar"
-              className="hero-buy-btn"
-            >
+            <Link to="/comprar" className="hero-buy-btn">
               Comprar ahora
-
-              <ArrowRight
-                className="hero-button-icon"
-                aria-hidden="true"
-              />
+              <ArrowRight className="hero-button-icon" aria-hidden="true" />
             </Link>
 
-            <Link
-              to="/producto"
-              className="hero-secondary-btn"
-            >
+            <Link to="/producto" className="hero-secondary-btn">
               Conocer el producto
             </Link>
           </div>
@@ -112,26 +135,18 @@ function Hero() {
       </div>
 
       <div className="hero-info">
-        {productDetails.map(
-          ({ id, title, description, Icon }) => (
-            <div
-              key={id}
-              className="hero-info-item"
-            >
-              <div className="hero-icon-wrap">
-                <Icon
-                  className="hero-icon"
-                  aria-hidden="true"
-                />
-              </div>
-
-              <div className="hero-info-content">
-                <strong>{title}</strong>
-                <small>{description}</small>
-              </div>
+        {productDetails.map(({ id, title, description, Icon }) => (
+          <div key={id} className="hero-info-item">
+            <div className="hero-icon-wrap">
+              <Icon className="hero-icon" aria-hidden="true" />
             </div>
-          )
-        )}
+
+            <div className="hero-info-content">
+              <strong>{title}</strong>
+              <small>{description}</small>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
