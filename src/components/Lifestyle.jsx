@@ -1,5 +1,6 @@
-import adultoMayor from '../assets/img/adulto-mayor2.png'
-import '../style/lifestyle.css'
+const adultoMayor = "/images/wellness/noticia01.png";
+
+import "../style/lifestyle.css";
 
 function Lifestyle() {
   return (
@@ -7,53 +8,57 @@ function Lifestyle() {
       <div className="lifestyle-container">
 
         <div className="lifestyle-content">
-          <span>Bienestar diario</span>
+          <span className="lifestyle-eyebrow">
+            Bienestar Cerebria
+          </span>
 
-          <h2>Mantén tu mente activa cada día</h2>
+          <h2>
+            5 hábitos simples para mantener la mente activa cada día
+          </h2>
 
-          <p>
-            Cerebria® fue pensado para adultos que buscan apoyar
-            su memoria, concentración y bienestar cognitivo con
-            una fórmula práctica y fácil de consumir.
+          <p className="lifestyle-description">
+            Mantener una rutina activa también implica estimular la mente.
+            Leer, conversar, moverse, descansar bien y organizar las
+            actividades cotidianas son pequeños hábitos que pueden formar
+            parte de un estilo de vida equilibrado.
           </p>
 
-          <div className="lifestyle-points">
-            <div className="point-card point-animate">
-              <strong>Memoria</strong>
-              <p>Apoyo diario para mantener claridad mental.</p>
-            </div>
+          <a
+            href="/bienestar/mente-activa"
+            className="lifestyle-read-more"
+          >
+            Leer artículo
+            <span aria-hidden="true">→</span>
+          </a>
 
-            <div className="point-card point-animate">
-              <strong>Concentración</strong>
-              <p>Ideal para rutinas activas y enfoque cotidiano.</p>
-            </div>
+          <div className="lifestyle-meta">
+            <span>Bienestar y memoria</span>
 
-            <div className="point-card point-animate">
-              <strong>Formato práctico</strong>
-              <p>Jarabe fácil de consumir y sin azúcar.</p>
+            <span className="lifestyle-meta-dot">
+              •
+            </span>
+
+            <span>5 min de lectura</span>
+          </div>
+        </div>
+
+        <div className="lifestyle-image-wrapper">
+          <div className="lifestyle-image">
+            <img
+              src={adultoMayor}
+              alt="Adulto mayor leyendo un libro en su hogar"
+            />
+
+            <div className="lifestyle-reading-badge">
+              <span>Lectura recomendada</span>
+              <strong>5 min</strong>
             </div>
           </div>
         </div>
-        
-
-<div className="lifestyle-image-wrapper">
-
-  <span className="memory-phrase">
-    “Yo no te olvido”
-  </span>
-
-  <div className="lifestyle-image">
-    <img
-      src={adultoMayor}
-      alt="Adulto mayor utilizando Cerebria"
-    />
-  </div>
-
-</div>
 
       </div>
     </section>
-  )
+  );
 }
 
-export default Lifestyle
+export default Lifestyle;

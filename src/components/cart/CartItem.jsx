@@ -1,5 +1,5 @@
 import "./CartItem.css";
-import fallbackImage from "../../assets/img/img-producto.png";
+const fallbackImage = "/images/product/img-producto.png";
 
 function CartItem({ item, onIncrease, onDecrease, onRemove }) {
   const subtotal = item.price * item.quantity;

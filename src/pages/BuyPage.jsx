@@ -6,10 +6,11 @@ import { useCart } from "../context/CartContext";
 
 import Reviews from "../components/Reviews";
 
-import productImage from "../assets/img/img-producto.png";
-import nutritionImage from "../assets/img/Cerebria-Etiqueta_page-0001.jpg";
-
 import "../style/BuyPage.css";
+
+const productImage = "/images/product/img-producto.png";
+const nutritionImage =
+  "/images/product/Cerebria-Etiqueta_page-0001.jpg";
 
 function BuyPage() {
   const [quantity, setQuantity] = useState(1);

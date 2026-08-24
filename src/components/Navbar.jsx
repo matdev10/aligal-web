@@ -4,7 +4,7 @@ import { ShoppingCart, Menu, X } from "lucide-react";
 
 import { useCart } from "../context/CartContext";
 
-import logo from "../assets/img/logo-blanco.png";
+const logo = "/images/brand/logo-blanco.png";
 import "../style/navbar.css";
 
 function Navbar() {

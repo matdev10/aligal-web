@@ -1,0 +1,304 @@
+/* =========================================================
+   ARTÍCULO BIENESTAR
+========================================================= */
+
+.wellness-article {
+  min-height: 100vh;
+  padding: 170px 0 90px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #eef1ef 0%,
+      #ffffff 45%,
+      #f1f4f2 100%
+    );
+}
+
+.wellness-article__container {
+  width: min(920px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   VOLVER
+========================================================= */
+
+.wellness-article__back {
+  margin-bottom: 42px;
+  padding: 0;
+
+  color: rgba(15, 42, 43, 0.62);
+
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  background: none;
+  border: 0;
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+.wellness-article__back:hover {
+  color: #16849a;
+}
+
+
+/* =========================================================
+   CABECERA
+========================================================= */
+
+.wellness-article__header {
+  max-width: 760px;
+  margin-bottom: 42px;
+}
+
+.wellness-article__eyebrow {
+  display: block;
+  margin-bottom: 18px;
+
+  color: #16849a;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.wellness-article__header h1 {
+  margin: 0 0 22px;
+
+  color: #142526;
+
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  line-height: 0.98;
+
+  letter-spacing: -0.045em;
+}
+
+.wellness-article__header p {
+  max-width: 650px;
+  margin: 0;
+
+  color: rgba(20, 37, 38, 0.6);
+
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   IMAGEN
+========================================================= */
+
+.wellness-article__image {
+  width: 100%;
+  margin-bottom: 58px;
+
+  overflow: hidden;
+
+  border-radius: 26px;
+}
+
+.wellness-article__image img {
+  display: block;
+
+  width: 100%;
+  max-height: 520px;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.wellness-article__content {
+  display: grid;
+
+  gap: 0;
+}
+
+.wellness-article__content section {
+  padding: 28px 0;
+
+  display: grid;
+  grid-template-columns: 55px 1fr;
+
+  gap: 20px;
+
+  border-bottom: 1px solid rgba(15, 48, 49, 0.1);
+}
+
+.wellness-article__content section > span {
+  color: #16849a;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+}
+
+.wellness-article__content h2 {
+  margin: 0 0 8px;
+
+  color: #172829;
+
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.wellness-article__content p {
+  max-width: 680px;
+  margin: 0;
+
+  color: rgba(20, 37, 38, 0.58);
+
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   CTA FINAL
+========================================================= */
+
+.wellness-article__cta {
+  margin-top: 70px;
+  padding: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  background: #082f31;
+  border-radius: 24px;
+}
+
+.wellness-article__cta span {
+  color: #8fd6d2;
+
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.wellness-article__cta h2 {
+  margin: 8px 0;
+
+  color: #ffffff;
+
+  font-size: 1.5rem;
+}
+
+.wellness-article__cta p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 0.86rem;
+}
+
+.wellness-article__actions {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.wellness-article__primary,
+.wellness-article__secondary {
+  min-height: 44px;
+  padding: 0 18px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.wellness-article__primary {
+  color: #082f31;
+
+  background: #8fd6d2;
+  border: 1px solid #8fd6d2;
+}
+
+.wellness-article__secondary {
+  color: rgba(255, 255, 255, 0.75);
+
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+/* =========================================================
+   MÓVIL
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .wellness-article {
+    padding: 130px 0 60px;
+  }
+
+  .wellness-article__container {
+    width: calc(100% - 30px);
+  }
+
+  .wellness-article__back {
+    margin-bottom: 30px;
+  }
+
+  .wellness-article__image {
+    margin-bottom: 38px;
+
+    border-radius: 20px;
+  }
+
+  .wellness-article__content section {
+    grid-template-columns: 38px 1fr;
+
+    gap: 12px;
+
+    padding: 22px 0;
+  }
+
+  .wellness-article__cta {
+    margin-top: 50px;
+    padding: 26px 22px;
+
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wellness-article__actions {
+    width: 100%;
+
+    flex-direction: column;
+  }
+
+  .wellness-article__primary,
+  .wellness-article__secondary {
+    width: 100%;
+  }
+}

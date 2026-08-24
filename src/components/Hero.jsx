@@ -9,8 +9,11 @@ import {
   Users,
 } from "lucide-react";
 
-import heroPremium from "../assets/img/hero-cerebria-premium.jpg";
-import heroMobil from "../assets/img/hero-cerebria-mobil2.png";
+const heroPremium =
+  "/images/hero/hero-cerebria-premium.jpg";
+
+const heroMobil =
+  "/images/hero/hero-cerebria-mobil2.png";
 
 import "../style/hero.css";
 

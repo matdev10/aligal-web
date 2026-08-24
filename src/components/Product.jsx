@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
-import nutritionImage from "../assets/img/Cerebria-Etiqueta_page-0001.jpg";
+const nutritionImage =
+  "/images/product/Cerebria-Etiqueta_page-0001.jpg";
 
 import "../style/product.css";
 

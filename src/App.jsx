@@ -7,6 +7,7 @@ import Contact from "./components/Contact";
 import WhatsAppButton from "./components/WhatsAppButton";
 import Lifestyle from "./components/Lifestyle";
 
+import WellnessArticlePage from "./pages/WellnessArticlePage";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import ProductPage from "./pages/ProductPage";
@@ -47,6 +48,12 @@ function App() {
 
       <Routes>
         <Route path="/" element={<LandingPage />} />
+
+        <Route
+          path="/bienestar/mente-activa"
+          element={<WellnessArticlePage />}
+        />
+
         <Route path="/producto" element={<ProductPage />} />
         <Route path="/comprar" element={<BuyPage />} />
         <Route path="/carrito" element={<CartPage />} />

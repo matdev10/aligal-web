@@ -4,7 +4,8 @@
 
 @font-face {
   font-family: "Neuropol";
-  src: url("../assets/fonts/NeuropolX.otf") format("opentype");
+  src: url("/fonts/NeuropolX.otf") format("opentype");
+  font-style: normal;
   font-display: swap;
 }
 

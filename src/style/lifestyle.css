@@ -1,731 +1,267 @@
-@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+/* =========================================================
+   LIFESTYLE / BIENESTAR EDITORIAL
+========================================================= */
 
-/* =========================
-   LIFESTYLE PREMIUM
-========================= */
-.lifestyle{
+.lifestyle {
   position: relative;
+
+  width: 100%;
+  padding: 110px 0;
+
   overflow: hidden;
-  padding: 130px 0;
-  background: radial-gradient(circle at top left, rgba(143, 214, 210, 0.18), transparent 35%), radial-gradient(circle at bottom right, rgba(120, 196, 223, 0.12), transparent 40%), linear-gradient(180deg, #f8f8f6 0%, #001515 100%);
-}
-.lifestyle::before{
-  content: "";
-  position: absolute;
-  inset: 0;
+
   background:
     linear-gradient(
-      120deg,
-      rgba(255,255,255,.10),
-      transparent 42%
+      135deg,
+      #f4f5f2 0%,
+      #dce1df 52%,
+      #123a3b 100%
     );
-  pointer-events: none;
 }
-.lifestyle::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(255,255,255,0.18), transparent 45%);
-  pointer-events: none;
-}
-.lifestyle-container{
-  position: relative;
-  z-index: 1;
-  width: 90%;
-  max-width: 1180px;
-  margin: auto;
+
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.lifestyle-container {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+
   display: grid;
-  grid-template-columns: 1.05fr .95fr;
-  gap: 90px;
+  grid-template-columns: 1fr 0.9fr;
   align-items: center;
+
+  gap: 80px;
 }
-.lifestyle-content span{
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.lifestyle-content {
+  max-width: 590px;
+}
+
+.lifestyle-eyebrow {
   display: inline-block;
-  color: #1d6f8f;
-  font-size: .78rem;
-  font-weight: 900;
-  letter-spacing: 4px;
+
+  margin-bottom: 20px;
+
+  color: #187c8d;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  margin-bottom: 10px;
 }
-.lifestyle-content h2{
-  max-width: 560px;
-  font-size: clamp(2.5rem, 4vw, 4rem);
-  margin: 14px 0 24px;
-  color: #151515;
-  line-height: 1.05;
-  letter-spacing: -2px;
+
+.lifestyle-content h2 {
+  margin: 0 0 24px;
+
+  max-width: 620px;
+
+  color: #171a1a;
+
+  font-size: clamp(2.4rem, 4.4vw, 4.5rem);
+  font-weight: 700;
+  line-height: 0.98;
+
+  letter-spacing: -0.045em;
 }
-.lifestyle-content > p{
-  max-width: 610px;
-  color: rgba(30,30,30,.62);
-  line-height: 1.9;
-  font-size: 1.08rem;
+
+.lifestyle-description {
+  max-width: 555px;
+  margin: 0 0 30px;
+
+  color: rgba(23, 26, 26, 0.62);
+
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.8;
 }
 
 
+/* =========================================================
+   ENLACE LEER ARTÍCULO
+========================================================= */
 
-/* =========================
-   frase imagen*/
-.lifestyle-image-wrapper{
-  position: relative;
-  display: flex;
-  justify-content: center;
+.lifestyle-read-more {
+  display: inline-flex;
   align-items: center;
 
+  gap: 10px;
+
+  padding-bottom: 5px;
+
+  color: #0b3536;
+
+  font-size: 0.92rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  border-bottom: 1px solid rgba(11, 53, 54, 0.3);
+
+  transition:
+    gap 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.memory-phrase{
-  position: absolute;
-  top: -50px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-2deg);
-  z-index: 3;
-  font-size: 3.5rem;
-  font-family: 'Protest Riot', cursive;
-  color: #0a262a ;
-  white-space: nowrap;
-  text-shadow: 0 4px 14px rgba(0,0,0,.08);
+.lifestyle-read-more:hover {
+  gap: 15px;
+
+  color: #187c8d;
+  border-color: #187c8d;
 }
 
-.memory-phrase::after{
-  content: "";
-  position: absolute;
-  left: 18px;
-  right: 8px;
-  bottom: -6px;
-  height: 4px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, transparent, #0a262a, transparent);
-  opacity: .65;
+.lifestyle-read-more:focus-visible {
+  outline: 2px solid rgba(24, 124, 141, 0.55);
+  outline-offset: 5px;
+
+  border-radius: 3px;
 }
 
 
+/* =========================================================
+   METADATOS
+========================================================= */
 
-/* =========================
-   IMAGE PREMIUM*/
+.lifestyle-meta {
+  margin-top: 36px;
 
-.lifestyle-image{
-  position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
-  bottom: -60px;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  color: rgba(23, 26, 26, 0.45);
+
+  font-size: 0.67rem;
+  font-weight: 600;
+  line-height: 1.4;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.lifestyle-image img{
+.lifestyle-meta-dot {
+  opacity: 0.6;
+}
+
+
+/* =========================================================
+   IMAGEN
+========================================================= */
+
+.lifestyle-image-wrapper {
   position: relative;
-  z-index: 1;
+
   width: 100%;
-  max-width: 340px;
-  border-radius: 42px;
-  object-fit: cover;
-}
-/* Glow de fondo */
-.lifestyle-image::before{
-  content: "";
-  position: absolute;
-  width: 115%;
-  height: 115%;
-  border-radius: 50px;
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(255,255,255,.45),
-      rgba(255,255,255,.08),
-      transparent 72%
-    );
+  max-width: 500px;
 
-  filter: blur(18px);
-  z-index: 0;
+  justify-self: end;
 }
 
-
-
-
-/* =========================
-   PUNTOS PREMIUM*/
-.lifestyle-points{
-  margin-top: 40px;
-  display: grid;
-  gap: 18px;
-}
-.point-card{
+.lifestyle-image {
   position: relative;
+
+  width: 100%;
   overflow: hidden;
-  background: rgba(255,255,255,0.72);
-  padding: 24px 28px 24px 32px;
-  border-radius: 26px;
-  border: 1px solid rgba(255,255,255,0.85);
-  box-shadow:
-    0 18px 45px rgba(0,0,0,0.08),
-    inset 0 1px 0 rgba(255,255,255,0.85);
-  backdrop-filter: blur(14px);
+
+  border-radius: 28px;
 }
-.point-card::before{
-  content: "";
+
+.lifestyle-image img {
+  display: block;
+
+  width: 100%;
+  aspect-ratio: 4 / 5;
+
+  object-fit: cover;
+  object-position: center;
+}
+/* =========================================================
+   BADGE LECTURA
+========================================================= */
+
+.lifestyle-reading-badge {
   position: absolute;
-  left: 0;
-  top: 24%;
-  width: 6px;
-  height: 52%;
-  border-radius: 0 20px 20px 0;
-  background: linear-gradient(180deg, #17b8c7, #1d6f8f);
-}
-.point-card:hover{
-  transform: translateX(8px);
-  box-shadow:
-    0 26px 58px rgba(0,0,0,0.13),
-    inset 0 1px 0 rgba(255,255,255,0.95);
-}
-.point-animate{
-  opacity: 0;
-  transform: translateX(-45px);
-  animation: pointSlideIn .9s cubic-bezier(.22,1,.36,1) forwards;
-}
-.point-animate:nth-child(1){ animation-delay: .15s; }
-.point-animate:nth-child(2){ animation-delay: .35s; }
-.point-animate:nth-child(3){ animation-delay: .55s; }
+  left: 24px;
+  bottom: 24px;
+  z-index: 2;
 
+  min-width: 150px;
 
+  padding: 13px 17px;
 
-/* =========================
-   NOTEBOOK PEQUEÑO
-   1366 x 768 aprox.
-========================= */
+  display: flex;
+  flex-direction: column;
 
-@media (max-width: 1366px){
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
-  .lifestyle{
-    padding: 92px 0;
-  }
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 14px;
 
-  .lifestyle-container{
-    width: min(1080px, calc(100% - 56px));
-    max-width: none;
-
-    grid-template-columns:
-      minmax(0, 1.05fr)
-      minmax(380px, 0.95fr);
-
-    gap: 52px;
-  }
-
-  /* =========================
-     CONTENIDO
-  ========================= */
-
-  .lifestyle-content span{
-    margin-bottom: 8px;
-
-    font-size: 0.68rem;
-    letter-spacing: 3px;
-  }
-
-  .lifestyle-content h2{
-    max-width: 500px;
-    margin: 10px 0 18px;
-
-    font-size: clamp(2.3rem, 3.5vw, 3.25rem);
-    line-height: 1.03;
-    letter-spacing: -1.6px;
-  }
-
-  .lifestyle-content > p{
-    max-width: 540px;
-
-    font-size: 0.92rem;
-    line-height: 1.65;
-  }
-
-  /* =========================
-     TARJETAS
-  ========================= */
-
-  .lifestyle-points{
-    margin-top: 27px;
-
-    gap: 13px;
-  }
-
-  .point-card{
-    padding: 18px 21px 18px 25px;
-
-    border-radius: 20px;
-  }
-
-  .point-card::before{
-    top: 22%;
-
-    width: 5px;
-    height: 56%;
-  }
-
-  .point-card:hover{
-    transform: translateX(5px);
-  }
-
-  /* Si dentro de las tarjetas tienes títulos y párrafos */
-  .point-card h3{
-    margin-bottom: 6px;
-
-    font-size: 1rem;
-    line-height: 1.25;
-  }
-
-  .point-card p{
-    font-size: 0.82rem;
-    line-height: 1.5;
-  }
-
-  /* =========================
-     IMAGEN
-  ========================= */
-
-  .lifestyle-image-wrapper{
-    padding-top: 25px;
-  }
-
-  .lifestyle-image img{
-    max-width: 370px;
-
-    border-radius: 33px;
-  }
-
-  .lifestyle-image::before{
-    width: 108%;
-    height: 108%;
-
-    border-radius: 40px;
-
-    filter: blur(14px);
-  }
-
-  /* =========================
-     FRASE SOBRE LA IMAGEN
-  ========================= */
-
-  .memory-phrase{
-    top: -60px;
-
-    font-size: 2.75rem;
-  }
-
-  .memory-phrase::after{
-    left: 14px;
-    right: 7px;
-    bottom: -5px;
-
-    height: 3px;
-  }
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
+.lifestyle-reading-badge span {
+  margin-bottom: 3px;
 
-/* =========================================================
-   ANIMACIÓN
-========================================================= */
+  color: rgba(23, 26, 26, 0.52);
 
-@keyframes pointSlideIn{
-
-  0%{
-    opacity:0;
-
-    transform:translateX(-45px);
-
-    filter:blur(6px);
-  }
-
-  100%{
-    opacity:1;
-
-    transform:translateX(0);
-
-    filter:blur(0);
-  }
+  font-size: 0.64rem;
+  font-weight: 500;
 }
 
+.lifestyle-reading-badge strong {
+  color: #0b3536;
 
-/* =========================================================
-   NOTEBOOK GRANDE
-   HASTA 1560px
-========================================================= */
-
-@media (max-width:1560px){
-
-  .lifestyle{
-    padding:110px 0;
-  }
-
-  .lifestyle-content{
-    transform: translate(35px, -10px);
-  }
-
-  .lifestyle-container{
-    width:min(1160px, calc(100% - 64px));
-    gap:10px;
-  }
-
-  .lifestyle-content h2{
-    font-size:clamp(2.4rem, 3.7vw, 2.5rem);
-  }
-
-  .lifestyle-content > p{
-    font-size:1rem;
-    line-height:1.75;
-  }
-
-  .lifestyle-points{
-    margin-top:34px;
-
-    gap:16px;
-  }
-
-  .point-card{
-    padding:21px 25px 21px 29px;
-
-    border-radius:23px;
-  }
-
-  /* IMAGEN */
-  .lifestyle-image {
-   bottom: -50px;
-   left: 50px;
-  }
-  .lifestyle-image-wrapper{
-    padding-top:25px;
-  }
-
-  .lifestyle-image img{
-    max-width:280px;
-    border-radius:33px;
-  }
-
-  .lifestyle-image::before{
-    width:108%;
-    height:108%;
-    border-radius:40px;
-    filter:blur(14px);
-  }
-
-
-  /* FRASE */
-
-  .memory-phrase{
-    top:-20px;
-    right:80px;
-    font-size:2.5rem;
-  }
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
-
-/* =========================================================
-   NOTEBOOK PEQUEÑO
-   1366 x 768 APROX.
-========================================================= */
-
-@media (max-width:1366px){
-
-  .lifestyle{
-    padding:72px 0;
-  }
-
-  .lifestyle-container{
-    width:min(1080px, calc(100% - 56px));
-    max-width:none;
-
-    grid-template-columns:
-      minmax(0, 1.05fr)
-      minmax(360px, .95fr);
-
-    gap:52px;
-  }
-
-  /* CONTENIDO */
-
-  .lifestyle-content{
-    transform: translate(35px, -20px);
-}
-
-  .lifestyle-content span{
-    margin-bottom:8px;
-
-    font-size:.68rem;
-    letter-spacing:3px;
-  }
-
-  .lifestyle-content h2{
-    max-width:500px;
-    margin:10px 0 18px;
-
-    font-size:clamp(2.3rem, 3.5vw, 3.25rem);
-    line-height:1.03;
-    letter-spacing:-1.6px;
-  }
-
-  .lifestyle-content > p{
-    max-width:540px;
-
-    font-size:.92rem;
-    line-height:1.65;
-  }
-
-  /* TARJETAS */
-
-  .lifestyle-points{
-    margin-top:27px;
-
-    gap:13px;
-  }
-
-  .point-card{
-    padding:18px 21px 18px 25px;
-
-    border-radius:20px;
-  }
-
-  .point-card::before{
-    top:22%;
-
-    width:5px;
-    height:56%;
-  }
-
-  .point-card:hover{
-    transform:translateX(5px);
-  }
-
-  .point-card h3{
-    margin-bottom:6px;
-
-    font-size:1rem;
-    line-height:1.25;
-  }
-
-  .point-card p{
-    font-size:.82rem;
-    line-height:1.5;
-  }
-
-  /* IMAGEN */
-  .lifestyle-image {
-   bottom: -29px;
-   left: 20px;
-  }
-  .lifestyle-image-wrapper{
-    padding-top:25px;
-  }
-
-  .lifestyle-image img{
-    max-width:230px;
-
-    border-radius:33px;
-  }
-
-  .lifestyle-image::before{
-    width:108%;
-    height:108%;
-
-    border-radius:40px;
-
-    filter:blur(14px);
-  }
-
-  /* FRASE */
-
-  .memory-phrase{
-    top:-40px;
-    right: -40px;
-    font-size:2.5rem;
-  }
-
-  .memory-phrase::after{
-    left:14px;
-    right:7px;
-    bottom:-5px;
-
-    height:3px;
-  }
-}
-
-
-/* =========================================================
-   NOTEBOOK PEQUEÑO CON POCA ALTURA
-========================================================= */
-
-@media (max-width:1366px) and (max-height:800px){
-
-  .lifestyle{
-    padding:72px 0;
-  }
-
-  .lifestyle-container{
-    gap:42px;
-  }
-
-  .lifestyle-content h2{
-    margin-bottom:14px;
-
-    font-size:clamp(2.1rem, 3.2vw, 2.9rem);
-  }
-
-  .lifestyle-content > p{
-    font-size:.86rem;
-    line-height:1.55;
-  }
-
-  .lifestyle-points{
-    margin-top:21px;
-
-    gap:10px;
-  }
-
-  .point-card{
-    padding:15px 19px 15px 23px;
-
-    border-radius:18px;
-  }
-
-  .point-card h3{
-    margin-bottom:4px;
-
-    font-size:.93rem;
-  }
-
-  .point-card p{
-    font-size:.76rem;
-    line-height:1.42;
-  }
-
-  .lifestyle-image-wrapper{
-    padding-top:18px;
-  }
-
-  .lifestyle-image img{
-    max-width:270px;
-
-    border-radius:29px;
-  }
-
-  .memory-phrase{
-    top:-48px;
-
-    font-size:2.35rem;
-  }
-}
 
 /* =========================================================
    TABLET
 ========================================================= */
 
-@media (max-width:992px){
+@media (max-width: 900px) {
 
-  .lifestyle{
-    padding:72px 0;
+  .lifestyle {
+    padding: 82px 0;
   }
 
-  .lifestyle-container{
-    width:min(760px, calc(100% - 48px));
+  .lifestyle-container {
+    grid-template-columns: 1fr;
 
-    grid-template-columns:1fr;
-    gap:70px;
+    gap: 52px;
   }
 
-  /* RESETEA LOS AJUSTES DE ESCRITORIO */
-
-  .lifestyle-content{
-    transform:none;
-
-    text-align:center;
+  .lifestyle-content {
+    max-width: 680px;
   }
 
-  .lifestyle-content h2{
-    max-width:620px;
-
-    margin:12px auto 20px;
+  .lifestyle-content h2 {
+    max-width: 680px;
   }
 
-  .lifestyle-content > p{
-    max-width:650px;
+  .lifestyle-image-wrapper {
+    max-width: 620px;
 
-    margin:0 auto;
+    justify-self: start;
   }
 
-  .lifestyle-points{
-    max-width:680px;
-
-    margin:30px auto 0;
-
-    text-align:left;
-  }
-
-  .lifestyle-image-wrapper{
-    width:100%;
-
-    padding-top:35px;
-  }
-
-  .lifestyle-image{
-
-    position:relative;
-
-    left:0;
-    bottom:0;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-  }
-
-  .lifestyle-image img{
-    max-width:360px;
-  }
-
-  .memory-phrase{
-    top:-32px;
-    left:50%;
-
-    transform:translateX(-50%) rotate(-2deg);
-
-    font-size:2.6rem;
-  }
-
-  .point-card:hover{
-    transform:translateY(-4px);
-  }
-
-}
-
-
-
-/* =========================================================
-   TABLET PEQUEÑA
-   HASTA 900px
-========================================================= */
-
-@media (max-width:900px){
-
-  .lifestyle-container{
-    width:min(700px, calc(100% - 40px));
-
-    gap:70px;
-  }
-
-  .lifestyle-content h2{
-    font-size:clamp(2.35rem, 6vw, 3.2rem);
-  }
-
-  .lifestyle-content > p{
-    font-size:.96rem;
-    line-height:1.7;
-  }
-
-  .lifestyle-points{
-    margin-top:32px;
-  }
-
-  .lifestyle-image img{
-    max-width:390px;
+  .lifestyle-image img {
+    aspect-ratio: 16 / 10;
   }
 }
 
@@ -734,185 +270,78 @@
    MÓVIL
 ========================================================= */
 
-@media (max-width:768px){
+@media (max-width: 600px) {
 
-  .lifestyle{
-    padding:72px 0;
+  .lifestyle {
+    padding: 64px 0;
+
+    background:
+      linear-gradient(
+        180deg,
+        #f4f5f2 0%,
+        #dce1df 70%,
+        #153a3b 100%
+      );
   }
 
-  .lifestyle-container{
-    width:calc(100% - 32px);
+  .lifestyle-container {
+    width: calc(100% - 30px);
 
-    grid-template-columns:1fr;
-
-    gap:58px;
+    gap: 38px;
   }
 
-  /* MUY IMPORTANTE */
+  .lifestyle-eyebrow {
+    margin-bottom: 16px;
 
-  .lifestyle-content{
-    transform:none;
-
-    text-align:center;
+    font-size: 0.68rem;
   }
 
-  .lifestyle-content span{
-    font-size:.65rem;
-    letter-spacing:2.4px;
+  .lifestyle-content h2 {
+    margin-bottom: 20px;
+
+    font-size: clamp(2.1rem, 10vw, 3rem);
+    line-height: 1;
   }
 
-  .lifestyle-content h2{
-    margin:10px auto 18px;
+  .lifestyle-description {
+    margin-bottom: 26px;
 
-    font-size:clamp(2rem,9vw,2.7rem);
+    font-size: 0.93rem;
+    line-height: 1.7;
   }
 
-  .lifestyle-content > p{
-    margin:0 auto;
+  .lifestyle-meta {
+    margin-top: 28px;
 
-    font-size:.9rem;
-    line-height:1.65;
+    gap: 8px;
+
+    font-size: 0.62rem;
   }
 
-  .lifestyle-points{
-    margin-top:26px;
-
-    gap:12px;
+  .lifestyle-image {
+    border-radius: 24px;
   }
 
-  .point-card{
-    padding:19px 20px 19px 24px;
+  .lifestyle-image img {
+    aspect-ratio: 4 / 5;
   }
 
-  .point-card:hover{
-    transform:none;
+  .lifestyle-reading-badge {
+    left: 14px;
+    bottom: 14px;
+
+    min-width: 138px;
+
+    padding: 11px 14px;
   }
 
-  /* IMAGEN */
-
-  .lifestyle-image-wrapper{
-    padding-top:42px;
+  .lifestyle-reading-badge span {
+    font-size: 0.6rem;
   }
 
-  .lifestyle-image{
-
-    left:0;
-    bottom:0;
-
-    display:flex;
-    justify-content:center;
-  }
-
-  .lifestyle-image img{
-    max-width:320px;
-
-    border-radius:28px;
-  }
-
-  /* FRASE */
-
-  .memory-phrase{
-
-    top:-12px;
-    left:50%;
-
-    transform:translateX(-50%) rotate(-2deg);
-
-    font-size:2rem;
-
-    white-space:nowrap;
-  }
-
-}
-
-/* =========================================================
-   MÓVIL PEQUEÑO
-   HASTA 420px
-========================================================= */
-
-@media (max-width:420px){
-
-  .lifestyle{
-    padding:72px 0;
-  }
-
-  .lifestyle-container{
-    width:calc(100% - 24px);
-
-    gap:58px;
-  }
-
-  .lifestyle-content h2{
-    font-size:clamp(1.95rem, 10vw, 2.45rem);
-  }
-
-  .lifestyle-content > p{
-    font-size:.86rem;
-    line-height:1.6;
-  }
-
-  .lifestyle-points{
-    gap:11px;
-  }
-
-  .point-card{
-    padding:17px 17px 17px 22px;
-
-    border-radius:18px;
-  }
-
-  .point-card h3{
-    font-size:.94rem;
-  }
-
-  .point-card p{
-    font-size:.77rem;
-  }
-
-  .lifestyle-image img{
-    max-width:300px;
-
-    border-radius:26px;
-  }
-
-  .memory-phrase{
-    top:-12px;
-
-    font-size:1.85rem;
-  }
-
-  .memory-phrase::after{
-    bottom:-4px;
-
-    height:3px;
+  .lifestyle-reading-badge strong {
+    font-size: 0.82rem;
   }
 }
 
 
-/* =========================================================
-   MÓVIL MUY PEQUEÑO
-   HASTA 360px
-========================================================= */
-
-@media (max-width:360px){
-
-  .lifestyle-container{
-    width:calc(100% - 20px);
-  }
-
-  .lifestyle-content h2{
-    font-size:1.9rem;
-  }
-
-  .point-card{
-    padding:16px 15px 16px 20px;
-  }
-
-  .lifestyle-image img{
-    max-width:270px;
-  }
-
-  .memory-phrase{
-    font-size:1.65rem;
-  }
-}

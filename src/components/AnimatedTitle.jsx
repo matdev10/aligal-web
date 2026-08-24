@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 
 const titles = [
-  "Olvidos? | Cerebria®",
-  "Concentración? | Cerebria®",
-  "Aprendizaje? | Cerebria®",
-  "Recuerdos? | Cerebria®",
+  "Memoria activa | Cerebria®",
+  "Mejor concentración | Cerebria®",
+  "Bienestar diario | Cerebria®",
+  "Mente activa | Cerebria®",
 ];
 
 function AnimatedTitle() {
