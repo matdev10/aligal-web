@@ -1,0 +1,55 @@
+/* =========================================================
+   CONTAINER GLOBAL
+========================================================= */
+
+.container {
+  width: min(
+    calc(100% - (var(--container-padding-desktop) * 2)),
+    var(--container-max)
+  );
+
+  margin-inline: auto;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+
+
+/* NOTEBOOK */
+@media (max-width: 1440px) and (min-width: 993px) {
+
+  .container {
+    width: min(
+      82%,
+      980px
+    );
+  }
+
+}
+
+
+/* TABLET */
+@media (max-width: 992px) and (min-width: 681px) {
+
+  .container {
+    width: calc(
+      100% - (var(--container-padding-tablet) * 2)
+    );
+  }
+
+}
+
+
+/* MOBILE */
+@media (max-width: 680px) {
+
+  .container {
+    width: calc(
+      100% - (var(--container-padding-mobile) * 2)
+    );
+  }
+
+}

@@ -1,0 +1,11 @@
+/* =========================================================
+   FUENTES DE MARCA
+========================================================= */
+
+@font-face {
+  font-family: "Neuropol";
+  src: url("/fonts/NeuropolX.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}

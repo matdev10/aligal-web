@@ -15,7 +15,7 @@ const heroPremium =
 const heroMobil =
   "/images/hero/hero-cerebria-mobil2.png";
 
-import "../style/hero.css";
+import "../style/components/hero.css";
 
 const productDetails = [
   {
@@ -44,7 +44,7 @@ const productDetails = [
   },
 ];
 
-  const heroPhrases = [
+const heroPhrases = [
   {
     line1: "Tu mente activa,",
     line2: "tu vida plena",
@@ -85,8 +85,6 @@ function Hero() {
   return (
     <section className="hero" id="inicio">
       <picture className="hero-picture">
-        <source media="(max-width: 768px)" srcSet={heroMobil} />
-
         <img
           className="hero-full-image"
           src={heroPremium}
@@ -94,14 +92,17 @@ function Hero() {
         />
       </picture>
 
-      <div className="hero-container">
+      <div className="hero-container container">
         <div className="hero-copy">
           {/* Solamente este bloque se moverá en móvil */}
           <div className="hero-text">
             <span className="hero-eyebrow">Bienestar para tu día a día</span>
 
             <h1>
-              <span className="cerebria-font">Cerebria®</span>
+              <span className="cerebria-font">
+                Cerebria
+                <sup className="cerebria-register">®</sup>
+              </span>
 
               <span
                 className={`hero-line ${isVisible ? "hero-line-visible" : "hero-line-hidden"}`}
@@ -137,19 +138,21 @@ function Hero() {
         </div>
       </div>
 
-      <div className="hero-info">
-        {productDetails.map(({ id, title, description, Icon }) => (
-          <div key={id} className="hero-info-item">
-            <div className="hero-icon-wrap">
-              <Icon className="hero-icon" aria-hidden="true" />
-            </div>
+      <div className="hero-info-container container">
+        <div className="hero-info">
+          {productDetails.map(({ id, title, description, Icon }) => (
+            <div key={id} className="hero-info-item">
+              <div className="hero-info-content">
+                <strong>{title}</strong>
+                <small>{description}</small>
+              </div>
 
-            <div className="hero-info-content">
-              <strong>{title}</strong>
-              <small>{description}</small>
+              <div className="hero-icon-wrap">
+                <Icon className="hero-icon" aria-hidden="true" />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

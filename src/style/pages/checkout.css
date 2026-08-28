@@ -1,0 +1,525 @@
+/* =========================================================
+   CHECKOUT
+========================================================= */
+
+.checkout-page{
+  min-height: 100vh;
+  padding: 125px 20px 90px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(62, 147, 147, 0.1),
+      transparent 35%
+    ),
+    #f8fafc;
+}
+
+.checkout-container{
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.checkout-header{
+  margin-bottom: 34px;
+}
+
+.checkout-title{
+  margin: 0;
+
+  color: #071426;
+
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.checkout-subtitle{
+  max-width: 650px;
+  margin: 12px 0 0;
+
+  color: #64748b;
+
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   DISTRIBUCIÓN PRINCIPAL
+========================================================= */
+
+.checkout-layout{
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(320px, 380px);
+
+  align-items: start;
+  gap: 32px;
+}
+
+.checkout-form-column{
+  min-width: 0;
+
+  display: grid;
+  gap: 24px;
+}
+
+.checkout-summary-column{
+  min-width: 0;
+
+  position: sticky;
+  top: 110px;
+}
+
+
+/* Evita que tarjetas internas superen sus columnas */
+.checkout-form-column > *,
+.checkout-summary-column > *{
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   FORMULARIOS
+========================================================= */
+
+.checkout-form-column input:not([type="radio"]):not([type="checkbox"]),
+.checkout-form-column select,
+.checkout-form-column textarea{
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  box-sizing: border-box;
+}
+
+.checkout-form-column textarea{
+  resize: vertical;
+}
+
+.checkout-form-column button{
+  max-width: 100%;
+}
+
+
+
+
+.checkout-form-column input[type="radio"]{
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+
+  margin: 0;
+
+  flex: 0 0 18px;
+
+  accent-color: #0f172a;
+
+  cursor: pointer;
+}
+
+.payment-option,
+.payment-method-option,
+.payment-method-label{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+/* =========================================================
+   EMPTY CHECKOUT
+========================================================= */
+
+.checkout-empty {
+  width: min(620px, 100%);
+
+  margin-inline: auto;
+  padding: 36px;
+
+  border: 1px solid rgba(9, 53, 57, 0.1);
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  text-align: center;
+
+  box-shadow:
+    0 20px 50px rgba(15, 23, 42, 0.07);
+}
+
+.checkout-empty p {
+  max-width: 430px;
+
+  margin: 14px auto 0;
+
+  color: #64748b;
+
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.checkout-empty__button {
+  min-height: 46px;
+
+  margin-top: 22px;
+  padding: 0 22px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #174c50,
+      #082c30
+    );
+
+  color: #ffffff;
+
+  font-size: 0.8rem;
+  font-weight: 900;
+
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   ORDER ERROR
+========================================================= */
+
+.checkout-error {
+  padding: 12px 14px;
+
+  border: 1px solid #fecaca;
+  border-radius: 11px;
+
+  background: #fef2f2;
+  color: #b91c1c;
+
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+.checkout-submit {
+  width: 100%;
+  min-height: 50px;
+
+  padding: 12px 16px;
+
+  border: 1px solid #0a3539;
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #174c50,
+      #082c30
+    );
+
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-weight: 900;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 26px rgba(8, 44, 48, 0.18);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.checkout-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 16px 32px rgba(8, 44, 48, 0.24);
+}
+
+.checkout-submit:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   PAYMENT NOTE
+========================================================= */
+
+.checkout-payment-note {
+  margin: 0;
+
+  color: #718486;
+
+  font-size: 0.72rem;
+  line-height: 1.5;
+
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   NOTEBOOK
+   993px - 1440px
+========================================================= */
+
+@media (max-width: 1440px) and (min-width: 993px) {
+
+  .checkout-page {
+    padding: 108px 20px 72px;
+  }
+
+  .checkout-container {
+    width: min(980px, 84%);
+  }
+
+  .checkout-header {
+    margin-bottom: 26px;
+  }
+
+  .checkout-title {
+    font-size: clamp(2rem, 3vw, 2.6rem);
+  }
+
+  .checkout-subtitle {
+    max-width: 560px;
+
+    font-size: 0.84rem;
+    line-height: 1.55;
+  }
+
+  .checkout-layout {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(280px, 320px);
+
+    gap: 24px;
+  }
+
+  .checkout-form-column {
+    gap: 20px;
+  }
+
+  .checkout-summary-column {
+    top: 100px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   681px - 992px
+========================================================= */
+
+@media (max-width: 992px) and (min-width: 681px) {
+
+  .checkout-page {
+    padding: 90px 20px 60px;
+  }
+
+  .checkout-container {
+    width: min(620px, 100%);
+  }
+
+  .checkout-header {
+    margin-bottom: 22px;
+
+    text-align: center;
+  }
+
+  .checkout-title {
+    font-size: clamp(1.9rem, 5vw, 2.35rem);
+  }
+
+  .checkout-subtitle {
+    max-width: 520px;
+
+    margin: 10px auto 0;
+
+    font-size: 0.78rem;
+    line-height: 1.55;
+  }
+
+  .checkout-layout {
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+  }
+
+  .checkout-form-column {
+    order: 1;
+
+    gap: 18px;
+  }
+
+  .checkout-summary-column {
+    position: static;
+    top: auto;
+
+    order: 2;
+  }
+
+  .checkout-summary-column > * {
+    position: static !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   <= 680px
+========================================================= */
+
+@media (max-width: 680px) {
+
+  .checkout-page {
+    padding: 78px 14px 48px;
+  }
+
+  .checkout-container {
+    width: 100%;
+  }
+
+  .checkout-header {
+    margin-bottom: 18px;
+
+    text-align: center;
+  }
+
+  .checkout-title {
+    font-size: 1.75rem;
+    line-height: 1.06;
+  }
+
+  .checkout-subtitle {
+    max-width: 310px;
+
+    margin: 8px auto 0;
+
+    font-size: 0.66rem;
+    line-height: 1.5;
+  }
+
+  .checkout-layout {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+  }
+
+  .checkout-form-column,
+  .checkout-summary-column {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .checkout-form-column {
+    gap: 14px;
+  }
+
+  .checkout-summary-column,
+  .checkout-summary-column > * {
+    position: static !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+
+    transform: none !important;
+  }
+
+  .checkout-form-column form,
+  .checkout-form-column section,
+  .checkout-form-column article,
+  .checkout-form-column div {
+    max-width: 100%;
+    min-width: 0;
+
+    box-sizing: border-box;
+  }
+
+  .checkout-form-column input:not([type="radio"]):not([type="checkbox"]),
+  .checkout-form-column select,
+  .checkout-form-column textarea {
+    min-height: 44px;
+
+    font-size: 16px;
+  }
+
+  .checkout-form-column textarea {
+    min-height: 90px;
+  }
+
+  .checkout-form-column input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    min-height: 16px;
+
+    flex-basis: 16px;
+  }
+
+  .payment-option,
+  .payment-method-option,
+  .payment-method-label {
+    gap: 9px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   <= 390px
+========================================================= */
+
+@media (max-width: 390px) {
+
+  .checkout-page {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .checkout-title {
+    font-size: 1.6rem;
+  }
+
+  .checkout-layout {
+    gap: 14px;
+  }
+}

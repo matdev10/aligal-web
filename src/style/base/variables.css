@@ -1,0 +1,46 @@
+/* =========================================================
+   VARIABLES GLOBALES
+========================================================= */
+
+:root {
+  /* Colores */
+  --primary: #2f6f8f;
+  --primary-light: #5da8c8;
+  --accent: #20a6b3;
+  --cerebria-yellow: #ffd902;
+
+  /* Fondos */
+  --bg-white: #ffffff;
+  --bg-soft: #f8fbfb;
+  --card: #ffffff;
+
+  /* Texto */
+  --text: #141414;
+  --muted: #6b7280;
+
+  /* Sombras */
+  --shadow-soft: 0 18px 45px rgba(20, 40, 50, 0.08);
+  --shadow-card: 0 22px 60px rgba(47, 111, 143, 0.12);
+
+  /* Bordes */
+  --radius-xl: 34px;
+  --radius-lg: 24px;
+
+  /* Layout */
+  
+    --container-max: 1300px;
+  
+    --container-padding-desktop: 48px;
+    --container-padding-notebook: 32px;
+    --container-padding-tablet: 24px;
+    --container-padding-mobile: 16px;
+
+  /* Espaciado */
+  --section-space-xl: 120px;
+  --section-space-lg: 96px;
+  --section-space-md: 72px;
+  --section-space-sm: 56px;
+
+  /* Tipografía */
+  --font-primary: "Manrope", Arial, Helvetica, sans-serif;
+}

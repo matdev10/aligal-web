@@ -1,0 +1,258 @@
+/* =========================================================
+   CUSTOMER FORM
+========================================================= */
+
+.customer-form {
+  width: 100%;
+
+  padding: 28px;
+
+  border: 1px solid rgba(9, 53, 57, 0.1);
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.06);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.customer-form__header {
+  margin-bottom: 22px;
+}
+
+.customer-form__header > span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #17879a;
+
+  font-size: 0.64rem;
+  font-weight: 900;
+
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.customer-form__header h2 {
+  margin: 0;
+
+  color: #0f2d31;
+
+  font-size: 1.45rem;
+  line-height: 1.15;
+  font-weight: 900;
+
+  letter-spacing: -0.025em;
+}
+
+.customer-form__header p {
+  max-width: 500px;
+
+  margin: 8px 0 0;
+
+  color: #718486;
+
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   FIELDS
+========================================================= */
+
+.customer-form__fields {
+  display: grid;
+
+  gap: 15px;
+}
+
+.customer-form__field {
+  display: grid;
+
+  gap: 7px;
+}
+
+.customer-form__field label {
+  color: #263f43;
+
+  font-size: 0.74rem;
+  font-weight: 900;
+}
+
+.customer-form__field input {
+  width: 100%;
+  min-height: 48px;
+
+  padding: 12px 14px;
+
+  border: 1px solid #d6e2df;
+  border-radius: 12px;
+
+  background: #f8fbfa;
+
+  color: #17353a;
+
+  font-family: inherit;
+  font-size: 0.88rem;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.customer-form__field input::placeholder {
+  color: #98a6a8;
+}
+
+.customer-form__field input:focus {
+  border-color: rgba(24, 124, 141, 0.42);
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 4px rgba(24, 124, 141, 0.08);
+}
+
+
+/* =========================================================
+   NOTEBOOK
+   993px - 1440px
+========================================================= */
+
+@media (max-width: 1440px) and (min-width: 993px) {
+
+  .customer-form {
+    padding: 22px;
+
+    border-radius: 21px;
+  }
+
+  .customer-form__header {
+    margin-bottom: 18px;
+  }
+
+  .customer-form__header h2 {
+    font-size: 1.28rem;
+  }
+
+  .customer-form__header p {
+    font-size: 0.75rem;
+  }
+
+  .customer-form__fields {
+    gap: 13px;
+  }
+
+  .customer-form__field input {
+    min-height: 44px;
+
+    padding: 10px 12px;
+
+    font-size: 0.8rem;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   681px - 992px
+========================================================= */
+
+@media (max-width: 992px) and (min-width: 681px) {
+
+  .customer-form {
+    padding: 20px;
+
+    border-radius: 20px;
+  }
+
+  .customer-form__header {
+    margin-bottom: 17px;
+  }
+
+  .customer-form__header h2 {
+    font-size: 1.2rem;
+  }
+
+  .customer-form__header p {
+    font-size: 0.72rem;
+  }
+
+  .customer-form__field label {
+    font-size: 0.68rem;
+  }
+
+  .customer-form__field input {
+    min-height: 43px;
+
+    font-size: 0.76rem;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   <= 680px
+========================================================= */
+
+@media (max-width: 680px) {
+
+  .customer-form {
+    padding: 16px;
+
+    border-radius: 17px;
+  }
+
+  .customer-form__header {
+    margin-bottom: 14px;
+  }
+
+  .customer-form__header > span {
+    margin-bottom: 5px;
+
+    font-size: 0.5rem;
+  }
+
+  .customer-form__header h2 {
+    font-size: 1.05rem;
+  }
+
+  .customer-form__header p {
+    margin-top: 6px;
+
+    font-size: 0.62rem;
+    line-height: 1.45;
+  }
+
+  .customer-form__fields {
+    gap: 11px;
+  }
+
+  .customer-form__field {
+    gap: 5px;
+  }
+
+  .customer-form__field label {
+    font-size: 0.61rem;
+  }
+
+  .customer-form__field input {
+    min-height: 42px;
+
+    padding: 9px 10px;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+  }
+}

@@ -23,6 +23,7 @@ import PaymentFailurePage from "./pages/PaymentFailurePage";
 import AnimatedTitle from "./components/AnimatedTitle";
 import SiteFooter from "./components/SiteFooter";
 
+import ScrollToTop from "./components/ScrollToTop";
 
 function LandingPage() {
   return (
@@ -79,6 +80,8 @@ function App() {
           element={<PaymentFailurePage />}
         />
       </Routes>
+
+      <ScrollToTop/>
     </>
   );
 }

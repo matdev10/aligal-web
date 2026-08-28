@@ -1,0 +1,509 @@
+/* =========================================================
+   CART PAGE
+========================================================= */
+
+.cart-page {
+  min-height: 100vh;
+
+  padding-block: 130px 80px;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(143, 214, 210, 0.14),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      #f8fafc 0%,
+      #eef5f3 100%
+    );
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.cart-page-container {
+  width: min(1180px, 100%);
+
+  margin-inline: auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.cart-page-header {
+  margin-bottom: 30px;
+}
+
+.cart-page-header span {
+  display: inline-block;
+
+  margin-bottom: 9px;
+
+  color: #17879a;
+
+  font-size: 0.7rem;
+  font-weight: 900;
+
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.cart-page-header h1 {
+  margin: 0;
+
+  color: #0f2d31;
+
+  font-size: clamp(2.2rem, 4vw, 3.25rem);
+  line-height: 1.05;
+  font-weight: 900;
+
+  letter-spacing: -0.04em;
+}
+
+.cart-page-header p {
+  max-width: 600px;
+
+  margin: 12px 0 0;
+
+  color: #64787c;
+
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.cart-page-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    340px;
+
+  align-items: start;
+
+  gap: 28px;
+}
+
+
+/* =========================================================
+   ITEMS
+========================================================= */
+
+.cart-items-list {
+  min-width: 0;
+
+  display: grid;
+
+  gap: 15px;
+}
+
+
+/* =========================================================
+   NOTEBOOK
+   993px - 1440px
+========================================================= */
+
+@media (max-width: 1440px) and (min-width: 993px) {
+
+  .cart-page {
+    padding-block: 110px 70px;
+  }
+
+  .cart-page-container {
+    width: min(980px, 84%);
+  }
+
+  .cart-page-header {
+    margin-bottom: 24px;
+  }
+
+  .cart-page-header span {
+    font-size: 0.62rem;
+  }
+
+  .cart-page-header h1 {
+    font-size: clamp(2rem, 3vw, 2.6rem);
+  }
+
+  .cart-page-header p {
+    max-width: 520px;
+
+    margin-top: 10px;
+
+    font-size: 0.82rem;
+  }
+
+  .cart-page-layout {
+    grid-template-columns:
+      minmax(0, 1fr)
+      300px;
+
+    gap: 22px;
+  }
+
+  .cart-items-list {
+    gap: 13px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   681px - 992px
+========================================================= */
+
+@media (max-width: 992px) and (min-width: 681px) {
+
+  .cart-page {
+    padding-block: 90px 60px;
+  }
+
+  .cart-page-container {
+    width: min(620px, 100%);
+  }
+
+  .cart-page-header {
+    margin-bottom: 22px;
+
+    text-align: center;
+  }
+
+  .cart-page-header span {
+    font-size: 0.58rem;
+  }
+
+  .cart-page-header h1 {
+    font-size: clamp(1.9rem, 5vw, 2.35rem);
+  }
+
+  .cart-page-header p {
+    max-width: 520px;
+
+    margin: 10px auto 0;
+
+    font-size: 0.78rem;
+  }
+
+  .cart-page-layout {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .cart-items-list {
+    gap: 12px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   <= 680px
+========================================================= */
+
+@media (max-width: 680px) {
+
+  .cart-page {
+    padding-block: 78px 48px;
+  }
+
+  .cart-page-container {
+    width: calc(100% - 28px);
+
+    margin-inline: auto;
+  }
+
+  .cart-page-header {
+    margin-bottom: 18px;
+
+    text-align: center;
+  }
+
+  .cart-page-header span {
+    margin-bottom: 6px;
+
+    font-size: 0.5rem;
+  }
+
+  .cart-page-header h1 {
+    font-size: 1.75rem;
+    line-height: 1.06;
+  }
+
+  .cart-page-header p {
+    max-width: 310px;
+
+    margin: 9px auto 0;
+
+    font-size: 0.66rem;
+    line-height: 1.5;
+  }
+
+  .cart-page-layout {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .cart-items-list {
+    gap: 10px;
+  }
+}
+
+
+/* =========================================================
+   CARRITO VACÍO
+========================================================= */
+
+.cart-page--empty {
+  min-height: 100vh;
+
+  padding-block: 145px 70px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(143, 214, 210, 0.18),
+      transparent 34%
+    ),
+    #f4f7f6;
+}
+
+
+/* =========================================================
+   EMPTY CARD
+========================================================= */
+
+.cart-empty {
+  width: min(540px, 100%);
+
+  padding: 52px 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border: 1px solid rgba(16, 54, 58, 0.1);
+  border-radius: 26px;
+
+  background: #ffffff;
+
+  text-align: center;
+
+  box-shadow:
+    0 22px 60px rgba(8, 42, 46, 0.09),
+    0 4px 14px rgba(8, 42, 46, 0.04);
+}
+
+
+/* =========================================================
+   EMPTY ICON
+========================================================= */
+
+.cart-empty__icon {
+  width: 70px;
+  height: 70px;
+
+  margin-bottom: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e5f3f0;
+  color: #174c50;
+}
+
+
+/* =========================================================
+   EMPTY TEXT
+========================================================= */
+
+.cart-empty__eyebrow {
+  margin-bottom: 10px;
+
+  color: #3b7c7d;
+
+  font-size: 0.66rem;
+  font-weight: 900;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cart-empty h1 {
+  margin: 0;
+
+  color: #082a2e;
+
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  line-height: 1.08;
+
+  letter-spacing: -0.035em;
+}
+
+.cart-empty p {
+  max-width: 390px;
+
+  margin: 15px 0 0;
+
+  color: #657879;
+
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   EMPTY BUTTON
+========================================================= */
+
+.cart-empty__button {
+  min-height: 48px;
+
+  margin-top: 25px;
+  padding: 12px 22px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border: 0;
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #174c50,
+      #082c30
+    );
+
+  color: #ffffff;
+
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 900;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 11px 23px rgba(8, 44, 48, 0.18);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cart-empty__button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 15px 28px rgba(8, 44, 48, 0.24);
+}
+
+
+/* =========================================================
+   EMPTY - TABLET
+========================================================= */
+
+@media (max-width: 992px) and (min-width: 681px) {
+
+  .cart-page--empty {
+    padding-block: 110px 55px;
+  }
+
+  .cart-empty {
+    width: min(480px, 100%);
+
+    padding: 42px 32px;
+
+    border-radius: 22px;
+  }
+
+  .cart-empty__icon {
+    width: 62px;
+    height: 62px;
+  }
+
+  .cart-empty h1 {
+    font-size: 2rem;
+  }
+
+  .cart-empty p {
+    font-size: 0.78rem;
+  }
+}
+
+
+/* =========================================================
+   EMPTY - MOBILE
+========================================================= */
+
+@media (max-width: 680px) {
+
+  .cart-page--empty {
+    padding-block: 90px 45px;
+  }
+
+  .cart-empty {
+    width: calc(100% - 28px);
+
+    padding: 30px 20px;
+
+    border-radius: 18px;
+  }
+
+  .cart-empty__icon {
+    width: 54px;
+    height: 54px;
+
+    margin-bottom: 16px;
+  }
+
+  .cart-empty__eyebrow {
+    margin-bottom: 7px;
+
+    font-size: 0.5rem;
+  }
+
+  .cart-empty h1 {
+    font-size: 1.6rem;
+  }
+
+  .cart-empty p {
+    max-width: 290px;
+
+    margin-top: 11px;
+
+    font-size: 0.66rem;
+    line-height: 1.5;
+  }
+
+  .cart-empty__button {
+    width: 100%;
+    min-height: 41px;
+
+    margin-top: 18px;
+    padding: 9px 14px;
+
+    font-size: 0.66rem;
+  }
+}

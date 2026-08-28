@@ -10,7 +10,7 @@ import { getShippingQuote } from "../services/shippingApiService";
 import { buildOrderPayload } from "../services/checkoutService";
 import { createPaymentPreference } from "../services/paymentApiService";
 
-import "../style/checkout.css";
+import "../style/pages/checkout.css";
 
 function CheckoutPage() {
   const {
@@ -252,187 +252,120 @@ function CheckoutPage() {
     }
   };
 
-  /*
-    Estado cuando el carrito está vacío.
-  */
-  if (cartItems.length === 0) {
-    return (
-      <main className="checkout-page">
-        <div className="checkout-container">
-          <section
-            style={{
-              maxWidth: "680px",
-              margin: "0 auto",
-              padding: "36px",
-              border: "1px solid #e2e8f0",
-              borderRadius: "24px",
-              background: "#ffffff",
-              textAlign: "center",
-              boxShadow:
-                "0 20px 50px rgba(15, 23, 42, 0.07)",
-            }}
-          >
-            <h1
-              className="checkout-title"
-              style={{
-                marginBottom: "14px",
-              }}
-            >
-              Tu carrito está vacío
-            </h1>
-
-            <p
-              style={{
-                margin: 0,
-                color: "#64748b",
-                lineHeight: "1.6",
-              }}
-            >
-              Agrega un producto antes de continuar con
-              el checkout.
-            </p>
-
-            <a
-              href="/producto"
-              style={{
-                minHeight: "48px",
-                marginTop: "24px",
-                padding: "0 24px",
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                borderRadius: "999px",
-                background: "#0f172a",
-                color: "#ffffff",
-                fontWeight: "800",
-                textDecoration: "none",
-              }}
-            >
-              Ver producto
-            </a>
-          </section>
-        </div>
-      </main>
-    );
-  }
-
-  const orderButtonDisabled =
-    processingOrder ||
-    loadingShipping ||
-    !shippingQuote?.available;
-
+/*
+  Estado cuando el carrito está vacío.
+*/
+if (cartItems.length === 0) {
   return (
     <main className="checkout-page">
       <div className="checkout-container">
-        <header className="checkout-header">
+        <section className="checkout-empty">
           <h1 className="checkout-title">
-            Finalizar pedido
+            Tu carrito está vacío
           </h1>
 
-          <p className="checkout-subtitle">
-            Completa tus datos de contacto y dirección
-            para calcular el despacho y continuar con el
-            pago.
+          <p>
+            Agrega un producto antes de continuar con el checkout.
           </p>
-        </header>
 
-        <div className="checkout-layout">
-          {/* Columna de formularios */}
-          <div className="checkout-form-column">
-            <CustomerForm
-              customer={customer}
-              onChange={handleCustomerChange}
-            />
-
-            <ShippingForm
-              shipping={shipping}
-              onChange={handleShippingChange}
-            />
-
-            <PaymentMethods
-              paymentMethod={paymentMethod}
-              onChange={setPaymentMethod}
-            />
-
-            {orderError && (
-              <div
-                role="alert"
-                style={{
-                  padding: "14px 16px",
-                  borderRadius: "12px",
-                  background: "#fef2f2",
-                  border: "1px solid #fecaca",
-                  color: "#b91c1c",
-                  fontWeight: "700",
-                  lineHeight: "1.5",
-                }}
-              >
-                {orderError}
-              </div>
-            )}
-
-            <button
-              type="button"
-              onClick={handleSubmitOrder}
-              disabled={orderButtonDisabled}
-              style={{
-                width: "100%",
-                minHeight: "54px",
-                padding: "14px 18px",
-                border: "none",
-                borderRadius: "12px",
-                background: processingOrder
-                  ? "#64748b"
-                  : "#0f172a",
-                color: "#ffffff",
-                fontFamily: "inherit",
-                fontSize: "16px",
-                fontWeight: "800",
-                cursor: orderButtonDisabled
-                  ? "not-allowed"
-                  : "pointer",
-                opacity: orderButtonDisabled
-                  ? 0.7
-                  : 1,
-              }}
-            >
-              {processingOrder
-                ? "Registrando pedido..."
-                : loadingShipping
-                  ? "Calculando despacho..."
-                  : "Continuar con Mercado Pago"}
-            </button>
-
-            <p
-              style={{
-                margin: 0,
-                color: "#64748b",
-                fontSize: "14px",
-                lineHeight: "1.5",
-                textAlign: "center",
-              }}
-            >
-              Al continuar, serás redirigido de forma
-              segura a Mercado Pago para completar el
-              pago.
-            </p>
-          </div>
-
-          {/* Columna del resumen */}
-          <aside className="checkout-summary-column">
-            <OrderSummary
-              cartItems={cartItems}
-              cartTotal={cartTotal}
-              shippingQuote={shippingQuote}
-              loadingShipping={loadingShipping}
-              shippingError={shippingError}
-              checkoutTotal={checkoutTotal}
-            />
-          </aside>
-        </div>
+          <a
+            href="/comprar"
+            className="checkout-empty__button"
+          >
+            Ver producto
+          </a>
+        </section>
       </div>
     </main>
   );
+}
+
+const orderButtonDisabled =
+  processingOrder ||
+  loadingShipping ||
+  !shippingQuote?.available;
+
+return (
+  <main className="checkout-page">
+    <div className="checkout-container">
+      <header className="checkout-header">
+        <h1 className="checkout-title">
+          Finalizar pedido
+        </h1>
+
+        <p className="checkout-subtitle">
+          Completa tus datos de contacto y dirección
+          para calcular el despacho y continuar con el
+          pago.
+        </p>
+      </header>
+
+      <div className="checkout-layout">
+
+        {/* Columna de formularios */}
+        <div className="checkout-form-column">
+
+          <CustomerForm
+            customer={customer}
+            onChange={handleCustomerChange}
+          />
+
+          <ShippingForm
+            shipping={shipping}
+            onChange={handleShippingChange}
+          />
+
+          <PaymentMethods
+            paymentMethod={paymentMethod}
+            onChange={setPaymentMethod}
+          />
+
+          {orderError && (
+            <div
+              className="checkout-error"
+              role="alert"
+            >
+              {orderError}
+            </div>
+          )}
+
+          <button
+            type="button"
+            className="checkout-submit"
+            onClick={handleSubmitOrder}
+            disabled={orderButtonDisabled}
+          >
+            {processingOrder
+              ? "Registrando pedido..."
+              : loadingShipping
+                ? "Calculando despacho..."
+                : "Continuar con Mercado Pago"}
+          </button>
+
+          <p className="checkout-payment-note">
+            Al continuar, serás redirigido de forma
+            segura a Mercado Pago para completar el
+            pago.
+          </p>
+
+        </div>
+
+        {/* Columna del resumen */}
+        <aside className="checkout-summary-column">
+          <OrderSummary
+            cartItems={cartItems}
+            cartTotal={cartTotal}
+            shippingQuote={shippingQuote}
+            loadingShipping={loadingShipping}
+            shippingError={shippingError}
+            checkoutTotal={checkoutTotal}
+          />
+        </aside>
+
+      </div>
+    </div>
+  </main>
+);
 }
 
 export default CheckoutPage;

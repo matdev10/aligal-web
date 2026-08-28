@@ -7,6 +7,7 @@
   padding: 0;
 
   background: #041719;
+
   border-top: 1px solid rgba(143, 214, 210, 0.12);
 }
 
@@ -32,7 +33,6 @@
   font-size: 11px;
   font-weight: 600;
   line-height: 1.2;
-
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -56,7 +56,7 @@
 
 
 /* =========================================================
-   CONTENEDORES DE PAGO CON FONDO CLARO
+   CONTENEDORES DE PAGO
 ========================================================= */
 
 .site-footer__payment-item {
@@ -68,8 +68,9 @@
 .site-footer__payment-item--light {
   height: 34px;
 
-  background: #ffffff;
   border-radius: 5px;
+
+  background: #ffffff;
 }
 
 
@@ -78,7 +79,7 @@
 ========================================================= */
 
 .site-footer__payment-item--mercadopago {
-  padding: 0 0px;
+  padding: 0;
 }
 
 .site-footer__payment-item--mercadopago img {
@@ -131,9 +132,7 @@
 ========================================================= */
 
 .site-footer__container {
-  width: min(1180px, calc(100% - 48px));
-  margin: 0 auto;
-  padding: 18px 0;
+  padding-block: 18px;
 
   display: flex;
   align-items: center;
@@ -208,6 +207,7 @@
   color: #8fd6d2;
 
   font-weight: 800;
+
   text-decoration: none;
 
   transition:
@@ -228,69 +228,133 @@
 
 
 /* =========================================================
-   TABLET
+   NOTEBOOK
+   993px - 1440px
 ========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 1440px) and (min-width: 993px) {
 
   .site-footer__payments {
-    padding: 18px 16px 16px;
+    padding: 16px 20px 15px;
+  }
+
+  .site-footer__payments-title {
+    margin-bottom: 11px !important;
+
+    font-size: 0.62rem;
   }
 
   .site-footer__payments-logos {
-    gap: 12px;
+    gap: 11px;
   }
 
-  /* Mercado Pago */
-  .site-footer__payment-item--mercadopago {
-    height: 32px;
-    padding: 0 3px;
+  .site-footer__payment-item--light {
+    height: 30px;
+
+    border-radius: 4px;
   }
 
   .site-footer__payment-item--mercadopago img {
-    height: 32px;
+    height: 30px;
   }
 
-  /* Visa */
-  .site-footer__payments-logos img[alt="Visa"] {
-    height: 27px;
-  }
-
-  /* Mastercard */
-  .site-footer__payments-logos img[alt="Mastercard"] {
-    height: 25px;
-  }
-
-  /* American Express */
-  .site-footer__payments-logos img[alt="American Express"] {
-    height: 25px;
-  }
-
-  /* Transferencia bancaria */
   .site-footer__payment-item--bank {
-    height: 32px;
     padding: 4px 8px;
   }
 
   .site-footer__payment-item--bank img {
-    height: 22px;
+    height: 21px;
+  }
+
+  .site-footer__payments-logos img[alt="Visa"] {
+    height: 24px;
+  }
+
+  .site-footer__payments-logos img[alt="Mastercard"] {
+    height: 25px;
+  }
+
+  .site-footer__payments-logos img[alt="American Express"] {
+    height: 24px;
+  }
+
+  .site-footer__container {
+    padding-block: 14px;
+
+    gap: 18px;
+  }
+
+  .site-footer__copyright {
+    font-size: 0.69rem;
+  }
+
+  .site-footer__legal a {
+    font-size: 0.69rem;
+  }
+
+  .site-footer__credit {
+    font-size: 0.69rem;
   }
 }
 
 
 /* =========================================================
-   MÓVIL
+   TABLET
+   681px - 992px
 ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 992px) and (min-width: 681px) {
+
+  .site-footer__payments {
+    padding: 15px 18px 14px;
+  }
+
+  .site-footer__payments-title {
+    margin-bottom: 10px !important;
+
+    font-size: 0.58rem;
+  }
+
+  .site-footer__payments-logos {
+    gap: 10px;
+  }
+
+  .site-footer__payment-item--light {
+    height: 28px;
+  }
+
+  .site-footer__payment-item--mercadopago img {
+    height: 28px;
+  }
+
+  .site-footer__payment-item--bank {
+    padding: 4px 7px;
+  }
+
+  .site-footer__payment-item--bank img {
+    height: 19px;
+  }
+
+  .site-footer__payments-logos img[alt="Visa"] {
+    height: 22px;
+  }
+
+  .site-footer__payments-logos img[alt="Mastercard"] {
+    height: 23px;
+  }
+
+  .site-footer__payments-logos img[alt="American Express"] {
+    height: 22px;
+  }
 
   .site-footer__container {
-    width: calc(100% - 30px);
-    padding: 16px 0;
+    padding-block: 13px;
 
-    flex-direction: column;
+    flex-wrap: wrap;
 
-    gap: 8px;
+    justify-content: center;
+
+    gap: 8px 20px;
 
     text-align: center;
   }
@@ -298,58 +362,91 @@
   .site-footer__copyright,
   .site-footer__legal a,
   .site-footer__credit {
-    font-size: 0.72rem;
+    font-size: 0.63rem;
   }
 }
 
-@media (max-width: 480px) {
+
+/* =========================================================
+   MOBILE
+   <= 680px
+========================================================= */
+
+@media (max-width: 680px) {
 
   .site-footer__payments {
-    padding: 17px 14px 15px;
+    padding: 14px 12px 13px;
   }
 
   .site-footer__payments-title {
-    margin-bottom: 12px;
+    margin-bottom: 10px !important;
 
-    font-size: 10px;
+    font-size: 0.52rem;
   }
 
   .site-footer__payments-logos {
-    gap: 10px 12px;
+    gap: 8px;
+
+    flex-wrap: nowrap;
   }
 
-  /* Mercado Pago */
-  .site-footer__payment-item--mercadopago {
-    height: 30px;
-    padding: 0 2px;
+  .site-footer__payment-item--light {
+    height: 26px;
   }
 
   .site-footer__payment-item--mercadopago img {
-    height: 30px;
+    height: 26px;
   }
 
-  /* Visa */
-  .site-footer__payments-logos img[alt="Visa"] {
-    height: 24px;
-  }
-
-  /* Mastercard */
-  .site-footer__payments-logos img[alt="Mastercard"] {
-    height: 23px;
-  }
-
-  /* American Express */
-  .site-footer__payments-logos img[alt="American Express"] {
-    height: 22px;
-  }
-
-  /* Transferencia bancaria */
   .site-footer__payment-item--bank {
-    height: 30px;
-    padding: 4px 7px;
+    padding: 3px 6px;
   }
 
   .site-footer__payment-item--bank img {
+    height: 17px;
+  }
+
+  .site-footer__payments-logos img[alt="Visa"] {
+    height: 20px;
+  }
+
+  .site-footer__payments-logos img[alt="Mastercard"] {
     height: 21px;
+  }
+
+  .site-footer__payments-logos img[alt="American Express"] {
+    height: 20px;
+  }
+
+
+  /* =======================================================
+     CONTENIDO INFERIOR
+  ======================================================= */
+
+  .site-footer__container {
+    padding-block: 14px;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    text-align: center;
+  }
+
+  .site-footer__copyright {
+    font-size: 0.58rem;
+    line-height: 1.4;
+  }
+
+  .site-footer__legal a {
+    font-size: 0.58rem;
+    line-height: 1.4;
+  }
+
+  .site-footer__credit {
+    font-size: 0.58rem;
+    line-height: 1.4;
   }
 }

@@ -1,3 +1,5 @@
+import "./OrderSummary.css";
+
 function OrderSummary({
   cartItems,
   cartTotal,
@@ -6,101 +8,110 @@ function OrderSummary({
   shippingError,
   checkoutTotal,
 }) {
-  const shippingCost = shippingQuote?.available ? shippingQuote.cost : 0;
-  const hasShipping = Boolean(shippingQuote?.available);
+  const shippingCost = shippingQuote?.available
+    ? shippingQuote.cost
+    : 0;
+
+  const hasShipping = Boolean(
+    shippingQuote?.available
+  );
 
   return (
-    <aside style={cardStyle}>
-      <h2>Resumen del pedido</h2>
+    <aside className="order-summary">
+      <div className="order-summary__header">
+        <span>Pedido</span>
 
-      {cartItems.map((item) => (
-        <div key={item.id} style={itemStyle}>
-          <strong>{item.name}</strong>
-          <span>
-            {item.quantity} × ${item.price.toLocaleString("es-CL")}
-          </span>
-        </div>
-      ))}
-
-      <hr style={dividerStyle} />
-
-      <div style={rowStyle}>
-        <span>Subtotal</span>
-        <strong>${cartTotal.toLocaleString("es-CL")}</strong>
+        <h2>Resumen del pedido</h2>
       </div>
 
-      <div style={shippingBoxStyle}>
-        <span>Despacho</span>
+      <div className="order-summary__items">
+        {cartItems.map((item) => (
+          <div
+            key={item.id}
+            className="order-summary__item"
+          >
+            <strong>{item.name}</strong>
+
+            <span>
+              {item.quantity} × $
+              {item.price.toLocaleString("es-CL")}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <div className="order-summary__divider" />
+
+      <div className="order-summary__row">
+        <span>Subtotal</span>
+
+        <strong>
+          ${cartTotal.toLocaleString("es-CL")}
+        </strong>
+      </div>
+
+      <div className="order-summary__shipping">
+        <span className="order-summary__shipping-label">
+          Despacho
+        </span>
 
         {loadingShipping && (
-          <strong style={{ color: "#64748b" }}>Calculando...</strong>
+          <strong className="order-summary__status">
+            Calculando...
+          </strong>
         )}
 
-        {!loadingShipping && shippingError && (
-          <strong style={{ color: "#dc2626" }}>{shippingError}</strong>
-        )}
+        {!loadingShipping &&
+          shippingError && (
+            <strong className="order-summary__status order-summary__status--error">
+              {shippingError}
+            </strong>
+          )}
 
-        {!loadingShipping && !shippingError && hasShipping && (
-          <>
-            <small>{shippingQuote.label}</small>
-            <strong>${shippingCost.toLocaleString("es-CL")}</strong>
-          </>
-        )}
+        {!loadingShipping &&
+          !shippingError &&
+          hasShipping && (
+            <div className="order-summary__shipping-result">
+              <small>
+                {shippingQuote.label}
+              </small>
 
-        {!loadingShipping && !shippingError && !hasShipping && (
-          <strong style={{ color: "#64748b" }}>Pendiente</strong>
-        )}
+              <strong>
+                $
+                {shippingCost.toLocaleString(
+                  "es-CL"
+                )}
+              </strong>
+            </div>
+          )}
+
+        {!loadingShipping &&
+          !shippingError &&
+          !hasShipping && (
+            <strong className="order-summary__status">
+              Pendiente
+            </strong>
+          )}
       </div>
 
-      <hr style={dividerStyle} />
+      <div className="order-summary__divider" />
 
-      <div style={totalStyle}>
-        <span>{hasShipping ? "Total" : "Total parcial"}</span>
-        <strong>${checkoutTotal.toLocaleString("es-CL")}</strong>
+      <div className="order-summary__total">
+        <span>
+          {hasShipping
+            ? "Total"
+            : "Total parcial"}
+        </span>
+
+        <strong>
+          $
+          {checkoutTotal.toLocaleString(
+            "es-CL"
+          )}
+        </strong>
       </div>
     </aside>
   );
 }
-
-const cardStyle = {
-  background: "#fff",
-  padding: "28px",
-  borderRadius: "18px",
-  border: "1px solid #e2e8f0",
-  height: "fit-content",
-};
-
-const itemStyle = {
-  marginTop: "18px",
-  display: "flex",
-  flexDirection: "column",
-  gap: "6px",
-};
-
-const dividerStyle = {
-  margin: "22px 0",
-  border: "none",
-  borderTop: "1px solid #e2e8f0",
-};
-
-const rowStyle = {
-  display: "flex",
-  justifyContent: "space-between",
-  marginBottom: "18px",
-};
-
-const shippingBoxStyle = {
-  display: "flex",
-  flexDirection: "column",
-  gap: "6px",
-  marginBottom: "18px",
-};
-
-const totalStyle = {
-  display: "flex",
-  justifyContent: "space-between",
-  fontSize: "20px",
-  fontWeight: "800",
-};
 
 export default OrderSummary;

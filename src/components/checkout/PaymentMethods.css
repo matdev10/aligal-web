@@ -1,0 +1,268 @@
+/* =========================================================
+   PAYMENT METHODS
+========================================================= */
+
+.payment-methods {
+  width: 100%;
+
+  padding: 26px;
+
+  border: 1px solid rgba(9, 53, 57, 0.1);
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.06);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.payment-methods__header {
+  margin-bottom: 18px;
+}
+
+.payment-methods__header > span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #17879a;
+
+  font-size: 0.64rem;
+  font-weight: 900;
+
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.payment-methods__header h2 {
+  margin: 0;
+
+  color: #0f2d31;
+
+  font-size: 1.4rem;
+  line-height: 1.15;
+  font-weight: 900;
+}
+
+.payment-methods__header p {
+  margin: 8px 0 0;
+
+  color: #718486;
+
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   OPTION
+========================================================= */
+
+.payment-method-option {
+  width: 100%;
+
+  padding: 15px 16px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  border: 1px solid #dce8e5;
+  border-radius: 14px;
+
+  background: #f8fbfa;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.payment-method-option:hover {
+  border-color: rgba(24, 124, 141, 0.28);
+
+  background: #ffffff;
+}
+
+.payment-method-option:has(input:checked) {
+  border-color: rgba(24, 124, 141, 0.42);
+
+  background: #f2f9f7;
+
+  box-shadow:
+    0 0 0 3px rgba(24, 124, 141, 0.06);
+}
+
+
+/* =========================================================
+   RADIO
+========================================================= */
+
+.payment-method-option input[type="radio"] {
+  width: 18px;
+  height: 18px;
+
+  min-width: 18px;
+
+  margin: 0;
+
+  flex: 0 0 18px;
+
+  accent-color: #174c50;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.payment-method-option__content {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.payment-method-option__content strong {
+  color: #173b3e;
+
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.payment-method-option__content span {
+  color: #718486;
+
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   NOTEBOOK
+   993px - 1440px
+========================================================= */
+
+@media (max-width: 1440px) and (min-width: 993px) {
+
+  .payment-methods {
+    padding: 22px;
+
+    border-radius: 21px;
+  }
+
+  .payment-methods__header {
+    margin-bottom: 15px;
+  }
+
+  .payment-methods__header h2 {
+    font-size: 1.25rem;
+  }
+
+  .payment-methods__header p {
+    font-size: 0.73rem;
+  }
+
+  .payment-method-option {
+    padding: 13px 14px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   681px - 992px
+========================================================= */
+
+@media (max-width: 992px) and (min-width: 681px) {
+
+  .payment-methods {
+    padding: 20px;
+
+    border-radius: 20px;
+  }
+
+  .payment-methods__header h2 {
+    font-size: 1.18rem;
+  }
+
+  .payment-method-option__content strong {
+    font-size: 0.76rem;
+  }
+
+  .payment-method-option__content span {
+    font-size: 0.66rem;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   <= 680px
+========================================================= */
+
+@media (max-width: 680px) {
+
+  .payment-methods {
+    padding: 16px;
+
+    border-radius: 17px;
+  }
+
+  .payment-methods__header {
+    margin-bottom: 13px;
+  }
+
+  .payment-methods__header > span {
+    margin-bottom: 5px;
+
+    font-size: 0.5rem;
+  }
+
+  .payment-methods__header h2 {
+    font-size: 1.05rem;
+  }
+
+  .payment-methods__header p {
+    margin-top: 6px;
+
+    font-size: 0.62rem;
+  }
+
+  .payment-method-option {
+    padding: 11px 12px;
+
+    gap: 9px;
+
+    border-radius: 11px;
+  }
+
+  .payment-method-option input[type="radio"] {
+    width: 16px;
+    height: 16px;
+
+    min-width: 16px;
+
+    flex-basis: 16px;
+  }
+
+  .payment-method-option__content strong {
+    font-size: 0.68rem;
+  }
+
+  .payment-method-option__content span {
+    font-size: 0.58rem;
+  }
+}

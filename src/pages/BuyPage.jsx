@@ -1,56 +1,113 @@
-import { useCallback, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
+
+import {
+  useNavigate,
+} from "react-router-dom";
+
+import {
+  ArrowLeft,
+  ArrowRight,
+  Check,
+  Minus,
+  Plus,
+  ShieldCheck,
+  ShoppingCart,
+  ExternalLink,
+} from "lucide-react";
 
 import { getProducts } from "../services/productService";
 import { useCart } from "../context/CartContext";
 
 import Reviews from "../components/Reviews";
 
-import "../style/BuyPage.css";
+import "../style/pages/buyPage.css";
+import SiteFooter from "../components/SiteFooter";
 
-const productImage = "/images/product/img-producto.png";
+const productImage =
+  "/images/product/img-producto.png";
+
 const nutritionImage =
   "/images/product/Cerebria-Etiqueta_page-0001.jpg";
 
+
 function BuyPage() {
   const [quantity, setQuantity] = useState(1);
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  const [showNutrition, setShowNutrition] = useState(false);
+
+  const [product, setProduct] =
+    useState(null);
+
+  const [loading, setLoading] =
+    useState(true);
+
+  const [error, setError] =
+    useState("");
+
+  const [showNutrition, setShowNutrition] =
+    useState(false);
 
   const navigate = useNavigate();
 
-  const { addToCart, openCart } = useCart();
+  const {
+    addToCart,
+    openCart,
+  } = useCart();
 
-  const loadProduct = useCallback(async () => {
-    try {
-      setLoading(true);
-      setError("");
 
-      const products = await getProducts();
-      const activeProduct = products?.[0];
+  /* =========================================================
+     CARGA DEL PRODUCTO
+  ========================================================= */
 
-      if (!activeProduct) {
-        throw new Error("No se encontró el producto.");
+  const loadProduct = useCallback(
+    async () => {
+      try {
+        setLoading(true);
+        setError("");
+
+        const products =
+          await getProducts();
+
+        const activeProduct =
+          products?.[0];
+
+        if (!activeProduct) {
+          throw new Error(
+            "No se encontró el producto."
+          );
+        }
+
+        setProduct(activeProduct);
+        setQuantity(1);
+
+      } catch (loadError) {
+        console.error(
+          "Error al cargar producto:",
+          loadError
+        );
+
+        setError(
+          "No pudimos cargar el producto. Revisa tu conexión e inténtalo nuevamente."
+        );
+
+      } finally {
+        setLoading(false);
       }
+    },
+    []
+  );
 
-      setProduct(activeProduct);
-      setQuantity(1);
-    } catch (loadError) {
-      console.error("Error al cargar producto:", loadError);
-
-      setError(
-        "No pudimos cargar el producto. Revisa tu conexión e inténtalo nuevamente."
-      );
-    } finally {
-      setLoading(false);
-    }
-  }, []);
 
   useEffect(() => {
     loadProduct();
   }, [loadProduct]);
+
+
+  /* =========================================================
+     MODAL NUTRICIONAL
+  ========================================================= */
 
   useEffect(() => {
     if (!showNutrition) {
@@ -63,21 +120,44 @@ function BuyPage() {
       }
     };
 
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow =
+      "hidden";
+
+    window.addEventListener(
+      "keydown",
+      handleKeyDown
+    );
 
     return () => {
       document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
+
+      window.removeEventListener(
+        "keydown",
+        handleKeyDown
+      );
     };
   }, [showNutrition]);
 
-  const stock = Number(product?.stock ?? 0);
-  const unitPrice = Number(product?.price ?? 0);
 
-  const isOutOfStock = stock <= 0;
+  /* =========================================================
+     PRODUCTO
+  ========================================================= */
+
+  const stock = Number(
+    product?.stock ?? 0
+  );
+
+  const unitPrice = Number(
+    product?.price ?? 0
+  );
+
+  const isOutOfStock =
+    stock <= 0;
+
   const canIncreaseQuantity =
-    !isOutOfStock && quantity < stock;
+    !isOutOfStock &&
+    quantity < stock;
+
 
   const increaseQuantity = () => {
     if (!canIncreaseQuantity) {
@@ -85,69 +165,111 @@ function BuyPage() {
     }
 
     setQuantity(
-      (currentQuantity) => currentQuantity + 1
+      (currentQuantity) =>
+        currentQuantity + 1
     );
   };
+
 
   const decreaseQuantity = () => {
-    setQuantity((currentQuantity) =>
-      Math.max(1, currentQuantity - 1)
+    setQuantity(
+      (currentQuantity) =>
+        Math.max(
+          1,
+          currentQuantity - 1
+        )
     );
   };
 
+
+  /* =========================================================
+     CARRITO
+  ========================================================= */
+
   const handleAddToCart = () => {
-    if (!product || isOutOfStock) {
+    if (
+      !product ||
+      isOutOfStock
+    ) {
       return;
     }
 
-    addToCart(product, quantity);
+    addToCart(
+      product,
+      quantity
+    );
+
     openCart();
   };
 
+
   const handleBuyNow = () => {
-    if (!product || isOutOfStock) {
+    if (
+      !product ||
+      isOutOfStock
+    ) {
       return;
     }
 
-    addToCart(product, quantity);
+    addToCart(
+      product,
+      quantity
+    );
+
     navigate("/carrito");
   };
 
-  const openNutritionModal = () => {
-    setShowNutrition(true);
-  };
 
-  const closeNutritionModal = () => {
-    setShowNutrition(false);
-  };
+  /* =========================================================
+     ESTADO DE CARGA
+  ========================================================= */
 
   if (loading) {
     return (
       <main className="buy-status-page">
+
         <div
           className="buy-status-card"
           role="status"
           aria-live="polite"
         >
+
           <span
             className="buy-loader"
             aria-hidden="true"
           />
 
-          <h1>Cargando Cerebria®</h1>
+          <h1>
+            Cargando Cerebria®
+          </h1>
 
           <p>
-            Estamos preparando la información del producto.
+            Estamos preparando la
+            información del producto.
           </p>
+
         </div>
+
       </main>
     );
   }
 
+
+  /* =========================================================
+     ERROR
+  ========================================================= */
+
   if (error || !product) {
     return (
       <main className="buy-status-page">
-        <div className="buy-status-card buy-status-card--error">
+
+        <div
+          className="
+            buy-status-card
+            buy-status-card--error
+          "
+        >
+
           <span
             className="buy-status-icon"
             aria-hidden="true"
@@ -155,7 +277,9 @@ function BuyPage() {
             !
           </span>
 
-          <h1>No pudimos cargar el producto</h1>
+          <h1>
+            No pudimos cargar el producto
+          </h1>
 
           <p>
             {error ||
@@ -169,277 +293,474 @@ function BuyPage() {
           >
             Intentar nuevamente
           </button>
+
         </div>
+
       </main>
     );
   }
 
-  const productName = product.name
-    .replace(/®/g, "")
-    .trim();
+
+  const productName =
+    product.name
+      .replace(/®/g, "")
+      .trim();
+
 
   return (
-    <main>
-      <div className="buy-page">
-        <section
-          className="buy-page__container"
-          id="producto"
+    <main className="buy-page">
+
+      {/* =====================================================
+          PRODUCTO
+      ====================================================== */}
+
+      <section
+        className="
+          buy-page__container
+          container
+        "
+        id="producto"
+      >
+
+        {/* ===================================================
+            VOLVER
+        =================================================== */}
+
+        <button
+          type="button"
+          className="buy-page__back"
+          onClick={() =>
+            navigate("/")
+          }
         >
-          <button
-            type="button"
-            className="buy-page__back"
-            onClick={() => navigate("/")}
-          >
-            <span aria-hidden="true">←</span>
+          <ArrowLeft
+            aria-hidden="true"
+          />
+
+          <span>
             Volver al inicio
-          </button>
+          </span>
+        </button>
 
-          <article className="buy-product">
-            {/* IMAGEN DEL PRODUCTO */}
 
-            <div className="buy-product__visual">
-              <div className="buy-product__badge">
-                {isOutOfStock
-                  ? "Sin stock"
-                  : "Disponible"}
-              </div>
+        {/* ===================================================
+            PRODUCT CARD
+        =================================================== */}
 
-              <div className="buy-product__image-wrapper">
-                <img
-                  className="buy-product__image"
-                  src={productImage}
-                  alt={`Frasco de ${productName}`}
-                />
-              </div>
+        <article className="buy-product">
 
-              <div className="buy-product__visual-footer">
-                <span>Compra protegida</span>
-                <span>Pago seguro</span>
-              </div>
+
+          {/* =================================================
+              VISUAL
+          ================================================= */}
+
+          <div className="buy-product__visual">
+
+            <div
+              className={`
+                buy-product__badge
+                ${
+                  isOutOfStock
+                    ? "buy-product__badge--empty"
+                    : ""
+                }
+              `}
+            >
+              {isOutOfStock
+                ? "Sin stock"
+                : "Disponible"}
             </div>
 
-            {/* INFORMACIÓN DEL PRODUCTO */}
 
-            <div className="buy-product__content">
-              <header className="buy-product__header">
-                <span className="buy-product__eyebrow">
-                  Suplemento alimenticio
+            <div className="buy-product__image-wrapper">
+
+              <img
+                className="buy-product__image"
+                src={productImage}
+                alt={`Frasco de ${productName}`}
+              />
+
+            </div>
+
+
+            <div className="buy-product__visual-footer">
+
+              <span>
+                <ShieldCheck
+                  aria-hidden="true"
+                />
+
+                Compra protegida
+              </span>
+
+              <span>
+                <Check
+                  aria-hidden="true"
+                />
+
+                Pago seguro
+              </span>
+
+            </div>
+
+          </div>
+
+
+          {/* =================================================
+              CONTENT
+          ================================================= */}
+
+          <div className="buy-product__content">
+
+
+            {/* ===============================================
+                HEADER
+            =============================================== */}
+
+            <header className="buy-product__header">
+
+              <span className="buy-product__eyebrow">
+                Suplemento alimenticio
+              </span>
+
+              <h1>
+                <span>
+                  {productName}®
                 </span>
 
-                <h1>
-                  <span>{productName}®</span>
-                  <small>Jarabe 200 ml</small>
-                </h1>
+                <small>
+                  Jarabe 200 ml
+                </small>
+              </h1>
 
-                <p className="buy-product__description">
-                  {product.description}
+              <p className="buy-product__description">
+                {product.description}
+              </p>
+
+            </header>
+
+
+            {/* ===============================================
+                PRECIO + STOCK
+            =============================================== */}
+
+            <div className="buy-product__price-row">
+
+              <div className="buy-product__price-group">
+
+                <span className="buy-product__price-label">
+                  Precio unitario
+                </span>
+
+                <p className="buy-product__price">
+                  $
+                  {unitPrice.toLocaleString(
+                    "es-CL"
+                  )}
                 </p>
-              </header>
 
-              {/* PRECIO Y STOCK */}
+              </div>
 
-              <div className="buy-product__price-row">
-                <div>
-                  <span className="buy-product__price-label">
-                    Precio unitario
-                  </span>
 
-                  <p className="buy-product__price">
-                    $
-                    {unitPrice.toLocaleString(
-                      "es-CL"
-                    )}
-                  </p>
-                </div>
-
-                <span
-                  className={`buy-product__stock ${
+              <span
+                className={`
+                  buy-product__stock
+                  ${
                     isOutOfStock
                       ? "buy-product__stock--empty"
                       : ""
-                  }`}
-                >
-                  {isOutOfStock
-                    ? "Producto agotado"
-                    : `${stock} unidades disponibles`}
+                  }
+                `}
+              >
+                {isOutOfStock
+                  ? "Producto agotado"
+                  : `${stock} unidades disponibles`}
+              </span>
+
+            </div>
+
+
+            {/* ===============================================
+                BENEFICIOS
+            =============================================== */}
+
+            <div className="buy-product__features">
+
+              <div className="buy-product__feature">
+
+                <span className="buy-product__feature-icon">
+                  <Check
+                    aria-hidden="true"
+                  />
                 </span>
-              </div>
 
-              {/* BENEFICIOS PRINCIPALES */}
-
-              <div className="buy-product__features">
-                <div className="buy-product__feature">
-                  <span className="buy-product__feature-icon">
-                    ✓
-                  </span>
-
-                  <div>
-                    <strong>
-                      Formato práctico
-                    </strong>
-
-                    <p>Frasco de 200 ml.</p>
-                  </div>
-                </div>
-
-                <div className="buy-product__feature">
-                  <span className="buy-product__feature-icon">
-                    ✓
-                  </span>
-
-                  <div>
-                    <strong>
-                      Despacho disponible
-                    </strong>
-
-                    <p>
-                      Entrega en Santiago y envío a regiones.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* INGREDIENTES */}
-
-              <div className="buy-product__details">
-                <div className="buy-product__details-header">
-                  <div>
-                    <span>Composición</span>
-
-                    <h2>
-                      Ingredientes principales
-                    </h2>
-                  </div>
-
-                  <button
-                    type="button"
-                    className="buy-product__nutrition-button"
-                    onClick={openNutritionModal}
-                  >
-                    Ver información nutricional
-                    <span aria-hidden="true">↗</span>
-                  </button>
-                </div>
-
-                <ul className="buy-product__ingredients">
-                  <li>Omega 3</li>
-                  <li>Vitaminas esenciales</li>
-                  <li>Minerales de apoyo nutricional</li>
-                  <li>Formato líquido de fácil consumo</li>
-                  <li>No contiene azúcar</li>
-                </ul>
-              </div>
-
-              {/* COMPRA */}
-
-              <div className="buy-product__purchase">
-                <div className="buy-product__quantity-section">
-                  <div>
-                    <span className="buy-product__quantity-label">
-                      Cantidad
-                    </span>
-
-                    <p className="buy-product__quantity-help">
-                      Selecciona cuántas unidades deseas comprar.
-                    </p>
-                  </div>
-
-                  <div
-                    className="buy-product__quantity-control"
-                    role="group"
-                    aria-label="Selector de cantidad"
-                  >
-                    <button
-                      type="button"
-                      onClick={decreaseQuantity}
-                      disabled={
-                        quantity === 1 ||
-                        isOutOfStock
-                      }
-                      aria-label="Disminuir cantidad"
-                    >
-                      −
-                    </button>
-
-                    <strong aria-live="polite">
-                      {quantity}
-                    </strong>
-
-                    <button
-                      type="button"
-                      onClick={increaseQuantity}
-                      disabled={
-                        !canIncreaseQuantity ||
-                        isOutOfStock
-                      }
-                      aria-label="Aumentar cantidad"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-
-                <p className="buy-product__checkout-note">
-                  El valor del despacho se calculará durante el checkout.
-                </p>
-
-                <div className="buy-product__actions">
-                  <button
-                    type="button"
-                    className="buy-product__button buy-product__button--secondary"
-                    onClick={handleAddToCart}
-                    disabled={isOutOfStock}
-                  >
-                    Agregar al carrito
-                  </button>
-
-                  <button
-                    type="button"
-                    className="buy-product__button buy-product__button--primary"
-                    onClick={handleBuyNow}
-                    disabled={isOutOfStock}
-                  >
-                    Comprar ahora
-                    <span aria-hidden="true">→</span>
-                  </button>
-                </div>
-
-                <div className="buy-product__security">
-                  <span className="buy-product__security-icon">
-                    ✓
-                  </span>
+                <div>
+                  <strong>
+                    Formato práctico
+                  </strong>
 
                   <p>
-                    Pago procesado de forma segura mediante Mercado Pago.
+                    Frasco de 200 ml.
                   </p>
                 </div>
-              </div>
-            </div>
-          </article>
-        </section>
-      </div>
 
-      {/* TESTIMONIOS */}
+              </div>
+
+
+              <div className="buy-product__feature">
+
+                <span className="buy-product__feature-icon">
+                  <Check
+                    aria-hidden="true"
+                  />
+                </span>
+
+                <div>
+                  <strong>
+                    Despacho disponible
+                  </strong>
+
+                  <p>
+                    Entrega en Santiago
+                    y envío a regiones.
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* ===============================================
+                COMPOSICIÓN
+            =============================================== */}
+
+            <section className="buy-product__details">
+
+              <div className="buy-product__details-header">
+
+                <div>
+                  <span>
+                    Composición
+                  </span>
+
+                  <h2>
+                    Ingredientes principales
+                  </h2>
+                </div>
+
+
+                <button
+                  type="button"
+                  className="buy-product__nutrition-button"
+                  onClick={() =>
+                    setShowNutrition(true)
+                  }
+                >
+                  Ver información nutricional
+
+                  <ExternalLink
+                    aria-hidden="true"
+                  />
+                </button>
+
+              </div>
+
+
+              <ul className="buy-product__ingredients">
+
+                <li>
+                  Omega 3
+                </li>
+
+                <li>
+                  Vitaminas esenciales
+                </li>
+
+                <li>
+                  Minerales de apoyo nutricional
+                </li>
+
+                <li>
+                  Formato líquido de fácil consumo
+                </li>
+
+                <li>
+                  No contiene azúcar
+                </li>
+
+              </ul>
+
+            </section>
+
+
+            {/* ===============================================
+                COMPRA
+            =============================================== */}
+
+            <section className="buy-product__purchase">
+
+              <div className="buy-product__quantity-section">
+
+                <div>
+                  <span className="buy-product__quantity-label">
+                    Cantidad
+                  </span>
+
+                  <p className="buy-product__quantity-help">
+                    Selecciona cuántas unidades
+                    deseas comprar.
+                  </p>
+                </div>
+
+
+                <div
+                  className="buy-product__quantity-control"
+                  role="group"
+                  aria-label="Selector de cantidad"
+                >
+
+                  <button
+                    type="button"
+                    onClick={decreaseQuantity}
+                    disabled={
+                      quantity === 1 ||
+                      isOutOfStock
+                    }
+                    aria-label="Disminuir cantidad"
+                  >
+                    <Minus
+                      aria-hidden="true"
+                    />
+                  </button>
+
+
+                  <strong aria-live="polite">
+                    {quantity}
+                  </strong>
+
+
+                  <button
+                    type="button"
+                    onClick={increaseQuantity}
+                    disabled={
+                      !canIncreaseQuantity ||
+                      isOutOfStock
+                    }
+                    aria-label="Aumentar cantidad"
+                  >
+                    <Plus
+                      aria-hidden="true"
+                    />
+                  </button>
+
+                </div>
+
+              </div>
+
+
+              <p className="buy-product__checkout-note">
+                El valor del despacho se calculará
+                durante el checkout.
+              </p>
+
+
+              <div className="buy-product__actions">
+
+                <button
+                  type="button"
+                  className="
+                    buy-product__button
+                    buy-product__button--secondary
+                  "
+                  onClick={handleAddToCart}
+                  disabled={isOutOfStock}
+                >
+                  <ShoppingCart
+                    aria-hidden="true"
+                  />
+
+                  Agregar al carrito
+                </button>
+
+
+                <button
+                  type="button"
+                  className="
+                    buy-product__button
+                    buy-product__button--primary
+                  "
+                  onClick={handleBuyNow}
+                  disabled={isOutOfStock}
+                >
+                  Comprar ahora
+
+                  <ArrowRight
+                    aria-hidden="true"
+                  />
+                </button>
+
+              </div>
+
+
+              <div className="buy-product__security">
+
+                <span className="buy-product__security-icon">
+                  <ShieldCheck
+                    aria-hidden="true"
+                  />
+                </span>
+
+                <p>
+                  Pago procesado de forma segura
+                  mediante Mercado Pago.
+                </p>
+
+              </div>
+
+            </section>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      {/* =====================================================
+          REVIEWS
+      ====================================================== */}
 
       <Reviews />
 
-      {/* MODAL DE INFORMACIÓN NUTRICIONAL */}
+      <SiteFooter />
+
+
+      {/* =====================================================
+          MODAL NUTRICIONAL
+      ====================================================== */}
 
       {showNutrition && (
+
         <div
           className="buy-nutrition-modal"
           role="dialog"
           aria-modal="true"
           aria-labelledby="buy-nutrition-title"
-          onClick={closeNutritionModal}
+          onClick={() =>
+            setShowNutrition(false)
+          }
         >
+
           <div
             className="buy-nutrition-modal__panel"
             onClick={(event) =>
               event.stopPropagation()
             }
           >
+
             <header className="buy-nutrition-modal__header">
+
               <div>
                 <span>
                   Producto Cerebria®
@@ -450,23 +771,32 @@ function BuyPage() {
                 </h2>
               </div>
 
+
               <button
                 type="button"
                 className="buy-nutrition-modal__close"
-                onClick={closeNutritionModal}
+                onClick={() =>
+                  setShowNutrition(false)
+                }
                 aria-label="Cerrar información nutricional"
               >
                 ×
               </button>
+
             </header>
+
 
             <img
               src={nutritionImage}
               alt="Tabla de información nutricional de Cerebria"
             />
+
           </div>
+
         </div>
+
       )}
+
     </main>
   );
 }

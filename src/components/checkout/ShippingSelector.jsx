@@ -1,40 +1,55 @@
 import { SHIPPING_METHODS } from "../../services/checkoutService";
 
-function ShippingSelector({ shippingMethod, onChange }) {
-  const methods = Object.values(SHIPPING_METHODS);
+import "./ShippingSelector.css";
+
+function ShippingSelector({
+  shippingMethod,
+  onChange,
+}) {
+  const methods = Object.values(
+    SHIPPING_METHODS
+  );
 
   return (
-    <section
-      style={{
-        background: "#fff",
-        padding: "24px",
-        borderRadius: "16px",
-        border: "1px solid #e2e8f0",
-        marginTop: "24px",
-      }}
-    >
-      <h2>Método de entrega</h2>
+    <section className="shipping-selector">
 
-      {methods.map((method) => (
-        <label
-          key={method.id}
-          style={{
-            display: "block",
-            marginTop: "16px",
-            cursor: "pointer",
-          }}
-        >
-          <input
-            type="radio"
-            name="shippingMethod"
-            value={method.id}
-            checked={shippingMethod === method.id}
-            onChange={(e) => onChange(e.target.value)}
-          />
-          {" "}
-          {method.name}
-        </label>
-      ))}
+      <div className="shipping-selector__header">
+        <span>Entrega</span>
+
+        <h2>Método de entrega</h2>
+
+        <p>
+          Selecciona cómo quieres recibir tu pedido.
+        </p>
+      </div>
+
+      <div className="shipping-selector__options">
+        {methods.map((method) => (
+          <label
+            key={method.id}
+            className="shipping-selector__option"
+          >
+            <input
+              type="radio"
+              name="shippingMethod"
+              value={method.id}
+              checked={
+                shippingMethod === method.id
+              }
+              onChange={(event) =>
+                onChange(event.target.value)
+              }
+            />
+
+            <div className="shipping-selector__option-content">
+              <strong>
+                {method.name}
+              </strong>
+            </div>
+          </label>
+        ))}
+      </div>
+
     </section>
   );
 }

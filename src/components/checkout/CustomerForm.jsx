@@ -1,51 +1,69 @@
+import "./CustomerForm.css";
+
 function CustomerForm({ customer, onChange }) {
   return (
-    <section style={cardStyle}>
-      <h2>Datos del cliente</h2>
+    <section className="customer-form">
+      <div className="customer-form__header">
+        <span>Datos personales</span>
 
-      <input
-        type="text"
-        name="name"
-        placeholder="Nombre completo"
-        value={customer.name}
-        onChange={onChange}
-        style={inputStyle}
-      />
+        <h2>Datos del cliente</h2>
 
-      <input
-        type="email"
-        name="email"
-        placeholder="Correo electrónico"
-        value={customer.email}
-        onChange={onChange}
-        style={inputStyle}
-      />
+        <p>
+          Ingresa la información necesaria para procesar tu compra.
+        </p>
+      </div>
 
-      <input
-        type="text"
-        name="phone"
-        placeholder="Teléfono"
-        value={customer.phone}
-        onChange={onChange}
-        style={inputStyle}
-      />
+      <div className="customer-form__fields">
+        <div className="customer-form__field">
+          <label htmlFor="customer-name">
+            Nombre completo
+          </label>
+
+          <input
+            id="customer-name"
+            type="text"
+            name="name"
+            placeholder="Ej: Matías González"
+            value={customer.name}
+            onChange={onChange}
+            autoComplete="name"
+          />
+        </div>
+
+        <div className="customer-form__field">
+          <label htmlFor="customer-email">
+            Correo electrónico
+          </label>
+
+          <input
+            id="customer-email"
+            type="email"
+            name="email"
+            placeholder="correo@ejemplo.cl"
+            value={customer.email}
+            onChange={onChange}
+            autoComplete="email"
+          />
+        </div>
+
+        <div className="customer-form__field">
+          <label htmlFor="customer-phone">
+            Teléfono
+          </label>
+
+          <input
+            id="customer-phone"
+            type="tel"
+            name="phone"
+            placeholder="+56 9 1234 5678"
+            value={customer.phone}
+            onChange={onChange}
+            autoComplete="tel"
+          />
+        </div>
+      </div>
     </section>
   );
 }
-
-const cardStyle = {
-  background: "#fff",
-  padding: "24px",
-  borderRadius: "16px",
-  border: "1px solid #e2e8f0",
-};
-
-const inputStyle = {
-  width: "100%",
-  padding: "14px",
-  marginTop: "12px",
-  borderRadius: "10px",
-  border: "1px solid #cbd5e1",
-};
 
 export default CustomerForm;

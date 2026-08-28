@@ -5,7 +5,20 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 import { CartProvider } from "./context/CartContext";
 
-import "./style/globals.css";
+/* =========================================================
+   ESTILOS GLOBALES
+========================================================= */
+
+import "./style/base/reset.css";
+import "./style/base/variables.css";
+import "./style/base/fonts.css";
+import "./style/base/global.css";
+
+/* =========================================================
+   LAYOUT GLOBAL
+========================================================= */
+
+import "./style/layout/container.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

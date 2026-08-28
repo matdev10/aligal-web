@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 const nutritionImage =
   "/images/product/Cerebria-Etiqueta_page-0001.jpg";
 
-import "../style/product.css";
+import "../style/components/product.css";
 
 const ingredients = [
   "Omega 3",

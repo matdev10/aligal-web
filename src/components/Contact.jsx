@@ -4,8 +4,7 @@ import { useRef, useState } from "react";
 import { FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
 
-import "../style/contact.css";
-
+import "../style/components/contact.css";
 
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -160,20 +159,20 @@ function Contact() {
 
   return (
     <section className="contact" id="contacto">
-      <div className="contact-container">
+      <div className="contact-container container">
 
         {/* ENCABEZADO */}
         <div className="contact-heading">
 
-          <span className="contact-eyebrow">
+          <span className="section-label">
             Contacto
           </span>
 
-          <h2>
+          <h2 className="section-title">
             Conversemos sobre Cerebria®
           </h2>
 
-          <p className="contact-description">
+          <p className="section-text contact-description">
             Resuelve tus dudas sobre el producto, sus ingredientes,
             disponibilidad y alternativas de despacho. Elige el canal
             de atención que te resulte más cómodo.

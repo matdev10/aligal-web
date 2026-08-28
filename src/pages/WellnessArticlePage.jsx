@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 
-import "../style/wellness-article.css";
+import "../style/pages/wellness-article.css";
 
 const articleImage = "/images/wellness/noticia01.png";
 

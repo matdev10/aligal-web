@@ -8,7 +8,14 @@ function CartItem({ item, onIncrease, onDecrease, onRemove }) {
   return (
     <article className="cart-item">
       <div className="cart-item-image">
-        <img src={image} alt={item.name} />
+        <img
+          src={image}
+          alt={item.name}
+          onError={(event) => {
+            event.currentTarget.onerror = null;
+            event.currentTarget.src = fallbackImage;
+          }}
+        />
       </div>
 
       <div className="cart-item-info">
@@ -16,9 +23,7 @@ function CartItem({ item, onIncrease, onDecrease, onRemove }) {
 
         <h3>{item.name}</h3>
 
-        <p className="cart-item-price">
-          ${item.price.toLocaleString("es-CL")}
-        </p>
+        <p className="cart-item-price">${item.price.toLocaleString("es-CL")}</p>
 
         <div className="cart-item-quantity">
           <button
@@ -31,10 +36,7 @@ function CartItem({ item, onIncrease, onDecrease, onRemove }) {
 
           <strong>{item.quantity}</strong>
 
-          <button
-            type="button"
-            onClick={() => onIncrease(item.id)}
-          >
+          <button type="button" onClick={() => onIncrease(item.id)}>
             +
           </button>
         </div>

@@ -15,7 +15,7 @@ export function normalizeCartItem(product, quantity = 1) {
     image:
       product.imageUrl ??
       product.image ??
-      null,
+      "/images/product/img-producto.png",
 
     price: product.price,
 

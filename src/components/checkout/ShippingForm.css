@@ -1,0 +1,358 @@
+/* =========================================================
+   SHIPPING FORM
+========================================================= */
+
+.shipping-form {
+  width: 100%;
+
+  padding: 26px;
+
+  border: 1px solid rgba(9, 53, 57, 0.1);
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.06);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.shipping-form__header {
+  margin-bottom: 20px;
+}
+
+.shipping-form__header > span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #17879a;
+
+  font-size: 0.64rem;
+  font-weight: 900;
+
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.shipping-form__header h2 {
+  margin: 0;
+
+  color: #0f2d31;
+
+  font-size: 1.4rem;
+  line-height: 1.15;
+  font-weight: 900;
+}
+
+.shipping-form__header p {
+  max-width: 500px;
+
+  margin: 8px 0 0;
+
+  color: #718486;
+
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.shipping-form__error {
+  margin-bottom: 15px;
+  padding: 10px 12px;
+
+  border: 1px solid rgba(220, 38, 38, 0.18);
+  border-radius: 11px;
+
+  background: #fff3f3;
+  color: #b93737;
+
+  font-size: 0.72rem;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   FIELDS
+========================================================= */
+
+.shipping-form__fields {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 15px;
+}
+
+.shipping-form__field {
+  min-width: 0;
+
+  display: grid;
+
+  gap: 7px;
+}
+
+.shipping-form__field:first-child,
+.shipping-form__field:last-child {
+  grid-column: 1 / -1;
+}
+
+.shipping-form__field label {
+  color: #263f43;
+
+  font-size: 0.74rem;
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.shipping-form__field input,
+.shipping-form__field select,
+.shipping-form__field textarea {
+  width: 100%;
+  min-width: 0;
+
+  padding: 12px 14px;
+
+  border: 1px solid #d6e2df;
+  border-radius: 12px;
+
+  background: #f8fbfa;
+
+  color: #17353a;
+
+  font-family: inherit;
+  font-size: 0.86rem;
+
+  outline: none;
+
+  box-sizing: border-box;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.shipping-form__field input,
+.shipping-form__field select {
+  min-height: 48px;
+}
+
+.shipping-form__field textarea {
+  min-height: 105px;
+
+  resize: vertical;
+}
+
+.shipping-form__field input::placeholder,
+.shipping-form__field textarea::placeholder {
+  color: #98a6a8;
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.shipping-form__field input:focus,
+.shipping-form__field select:focus,
+.shipping-form__field textarea:focus {
+  border-color: rgba(24, 124, 141, 0.42);
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 4px rgba(24, 124, 141, 0.08);
+}
+
+
+/* =========================================================
+   DISABLED
+========================================================= */
+
+.shipping-form__field select:disabled {
+  background: #f0f4f3;
+
+  color: #9aa8a9;
+
+  cursor: not-allowed;
+
+  opacity: 0.75;
+}
+
+
+/* =========================================================
+   NOTEBOOK
+   993px - 1440px
+========================================================= */
+
+@media (max-width: 1440px) and (min-width: 993px) {
+
+  .shipping-form {
+    padding: 22px;
+
+    border-radius: 21px;
+  }
+
+  .shipping-form__header {
+    margin-bottom: 17px;
+  }
+
+  .shipping-form__header h2 {
+    font-size: 1.25rem;
+  }
+
+  .shipping-form__header p {
+    font-size: 0.73rem;
+  }
+
+  .shipping-form__fields {
+    gap: 13px;
+  }
+
+  .shipping-form__field input,
+  .shipping-form__field select,
+  .shipping-form__field textarea {
+    padding: 10px 12px;
+
+    font-size: 0.79rem;
+  }
+
+  .shipping-form__field input,
+  .shipping-form__field select {
+    min-height: 44px;
+  }
+
+  .shipping-form__field textarea {
+    min-height: 95px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   681px - 992px
+========================================================= */
+
+@media (max-width: 992px) and (min-width: 681px) {
+
+  .shipping-form {
+    padding: 20px;
+
+    border-radius: 20px;
+  }
+
+  .shipping-form__header h2 {
+    font-size: 1.18rem;
+  }
+
+  .shipping-form__header p {
+    font-size: 0.7rem;
+  }
+
+  .shipping-form__field label {
+    font-size: 0.67rem;
+  }
+
+  .shipping-form__field input,
+  .shipping-form__field select,
+  .shipping-form__field textarea {
+    font-size: 0.76rem;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   <= 680px
+========================================================= */
+
+@media (max-width: 680px) {
+
+  .shipping-form {
+    padding: 16px;
+
+    border-radius: 17px;
+  }
+
+  .shipping-form__header {
+    margin-bottom: 14px;
+  }
+
+  .shipping-form__header > span {
+    margin-bottom: 5px;
+
+    font-size: 0.5rem;
+  }
+
+  .shipping-form__header h2 {
+    font-size: 1.05rem;
+  }
+
+  .shipping-form__header p {
+    margin-top: 6px;
+
+    font-size: 0.62rem;
+    line-height: 1.45;
+  }
+
+  .shipping-form__error {
+    margin-bottom: 11px;
+
+    padding: 8px 9px;
+
+    font-size: 0.61rem;
+  }
+
+  .shipping-form__fields {
+    grid-template-columns: 1fr;
+
+    gap: 11px;
+  }
+
+  .shipping-form__field:first-child,
+  .shipping-form__field:last-child {
+    grid-column: auto;
+  }
+
+  .shipping-form__field {
+    gap: 5px;
+  }
+
+  .shipping-form__field label {
+    font-size: 0.61rem;
+  }
+
+  .shipping-form__field input,
+  .shipping-form__field select,
+  .shipping-form__field textarea {
+    padding: 9px 10px;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+  }
+
+  .shipping-form__field input,
+  .shipping-form__field select {
+    min-height: 42px;
+  }
+
+  .shipping-form__field textarea {
+    min-height: 90px;
+  }
+}

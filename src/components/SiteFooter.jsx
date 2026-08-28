@@ -1,40 +1,27 @@
 import { Link } from "react-router";
 
-import "../style/site-footer.css";
+import "../style/components/site-footer.css";
 
 function SiteFooter() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="site-footer">
-
       {/* Métodos de pago */}
       <div className="site-footer__payments">
-        <p className="site-footer__payments-title">
-          Métodos de pago aceptados
-        </p>
+        <p className="site-footer__payments-title">Métodos de pago aceptados</p>
 
         <div className="site-footer__payments-logos">
-
           {/* Mercado Pago */}
           <div className="site-footer__payment-item site-footer__payment-item--light site-footer__payment-item--mercadopago">
-            <img
-              src="/images/payments/mercado-pago.svg"
-              alt="Mercado Pago"
-            />
+            <img src="/images/payments/mercado-pago.svg" alt="Mercado Pago" />
           </div>
 
           {/* Visa */}
-          <img
-            src="/images/payments/visa.svg"
-            alt="Visa"
-          />
+          <img src="/images/payments/visa.svg" alt="Visa" />
 
           {/* Mastercard */}
-          <img
-            src="/images/payments/mastercard.svg"
-            alt="Mastercard"
-          />
+          <img src="/images/payments/mastercard.svg" alt="Mastercard" />
 
           {/* American Express */}
           <img
@@ -49,20 +36,18 @@ function SiteFooter() {
               alt="Transferencia bancaria"
             />
           </div>
-
         </div>
       </div>
 
       {/* Footer inferior */}
-      <div className="site-footer__container">
+      {/* Footer inferior */}
+      <div className="site-footer__container container">
         <p className="site-footer__copyright">
           © {currentYear} Cerebria®. Todos los derechos reservados.
         </p>
 
         <div className="site-footer__legal">
-          <Link to="/politica-de-privacidad">
-            Política de Privacidad
-          </Link>
+          <Link to="/politica-de-privacidad">Política de Privacidad</Link>
         </div>
 
         <p className="site-footer__credit">
@@ -77,7 +62,6 @@ function SiteFooter() {
           </a>
         </p>
       </div>
-
     </footer>
   );
 }

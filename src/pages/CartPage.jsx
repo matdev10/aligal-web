@@ -4,7 +4,7 @@ import CartItem from "../components/cart/CartItem";
 import CartSummary from "../components/cart/CartSummary";
 import EmptyCart from "../components/cart/EmptyCart";
 
-import "../style/cart-page.css";
+import "../style/pages/cart-page.css";
 
 function CartPage() {
   const {
