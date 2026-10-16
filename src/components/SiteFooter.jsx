@@ -53,12 +53,12 @@ function SiteFooter() {
         <p className="site-footer__credit">
           Diseño y desarrollo por{" "}
           <a
-            href="https://millwords.cl"
+            href="https://nuvcore.cl"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Visitar sitio web de Millwords"
+            aria-label="Visitar sitio web de nuvcore"
           >
-            Millwords
+            nuvcore
           </a>
         </p>
       </div>
