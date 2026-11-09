@@ -1,3 +1,5 @@
+import { applyLaunchShippingPromotion } from "./cart/cartService";
+
 export const calculateSubtotal = (cartItems = []) => {
   return cartItems.reduce((total, item) => {
     return total + Number(item.price) * Number(item.quantity);
@@ -20,9 +22,14 @@ export const buildOrderPayload = ({
 }) => {
   const subtotal = calculateSubtotal(cartItems);
 
-  const shippingCost = shippingQuote?.available
+  const quotedShippingCost = shippingQuote?.available
     ? Number(shippingQuote.cost)
     : 0;
+
+  const shippingCost = applyLaunchShippingPromotion(
+    quotedShippingCost,
+    cartItems
+  );
 
   const total = calculateCheckoutTotal(subtotal, shippingCost);
 

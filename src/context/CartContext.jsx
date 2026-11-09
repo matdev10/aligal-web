@@ -7,6 +7,7 @@ import {
   decreaseQuantity,
   calculateCartTotal,
   calculateCartCount,
+  applyLaunchShippingPromotion,
 } from "../services/cart/cartService";
 
 const CartContext = createContext();
@@ -26,12 +27,17 @@ export function CartProvider({ children }) {
 
   const [shippingMethod, setShippingMethod] = useState("home_delivery");
 
-  const shippingCost =
+  const baseShippingCost =
     shippingMethod === "home_delivery"
       ? 3990
       : shippingMethod === "chilexpress"
       ? 5990
       : 0;
+
+  const shippingCost = applyLaunchShippingPromotion(
+    baseShippingCost,
+    cartItems
+  );
 
   useEffect(() => {
     localStorage.setItem("mw_cart", JSON.stringify(cartItems));

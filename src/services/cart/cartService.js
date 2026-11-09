@@ -80,3 +80,19 @@ export function calculateCartCount(cartItems) {
     0
   );
 }
+
+export const FREE_SHIPPING_MIN_QUANTITY = 2;
+
+export function qualifiesForFreeShipping(cartItems = []) {
+  return calculateCartCount(cartItems) >= FREE_SHIPPING_MIN_QUANTITY;
+}
+
+export function applyLaunchShippingPromotion(shippingCost, cartItems = []) {
+  if (qualifiesForFreeShipping(cartItems)) {
+    return 0;
+  }
+
+  const cost = Number(shippingCost);
+
+  return Number.isFinite(cost) ? cost : 0;
+}

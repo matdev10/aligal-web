@@ -9,6 +9,11 @@ import PaymentMethods from "../components/checkout/PaymentMethods";
 import { getShippingQuote } from "../services/shippingApiService";
 import { buildOrderPayload } from "../services/checkoutService";
 import { createPaymentPreference } from "../services/paymentApiService";
+import {
+  applyLaunchShippingPromotion,
+  calculateCartCount,
+  qualifiesForFreeShipping,
+} from "../services/cart/cartService";
 
 import "../style/pages/checkout.css";
 
@@ -45,9 +50,17 @@ function CheckoutPage() {
     useState(false);
   const [orderError, setOrderError] = useState("");
 
-  const shippingCost = shippingQuote?.available
+  const unitCount = calculateCartCount(cartItems);
+  const freeShipping = qualifiesForFreeShipping(cartItems);
+
+  const quotedShippingCost = shippingQuote?.available
     ? Number(shippingQuote.cost)
     : 0;
+
+  const shippingCost = applyLaunchShippingPromotion(
+    quotedShippingCost,
+    cartItems
+  );
 
   const checkoutTotal =
     Number(cartTotal) + shippingCost;
@@ -352,10 +365,27 @@ return (
 
         {/* Columna del resumen */}
         <aside className="checkout-summary-column">
+          {freeShipping ? (
+            <p
+              className="checkout-promo checkout-promo--applied"
+              role="status"
+            >
+              ¡Promoción de Lanzamiento: Envío gratis aplicado! 🚚
+            </p>
+          ) : unitCount === 1 ? (
+            <p
+              className="checkout-promo checkout-promo--nudge"
+              role="status"
+            >
+              ¡Agrega 1 frasco más de Cerebria y tu envío a todo Chile será completamente GRATIS!
+            </p>
+          ) : null}
+
           <OrderSummary
             cartItems={cartItems}
             cartTotal={cartTotal}
             shippingQuote={shippingQuote}
+            shippingCost={shippingCost}
             loadingShipping={loadingShipping}
             shippingError={shippingError}
             checkoutTotal={checkoutTotal}

@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
 import App from "./App.jsx";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 import { CartProvider } from "./context/CartContext";
 
 /* =========================================================
@@ -23,6 +24,7 @@ import "./style/layout/container.css";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
+      <GoogleAnalytics />
       <CartProvider>
         <App />
       </CartProvider>

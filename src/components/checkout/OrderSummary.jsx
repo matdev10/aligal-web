@@ -4,14 +4,11 @@ function OrderSummary({
   cartItems,
   cartTotal,
   shippingQuote,
+  shippingCost = 0,
   loadingShipping,
   shippingError,
   checkoutTotal,
 }) {
-  const shippingCost = shippingQuote?.available
-    ? shippingQuote.cost
-    : 0;
-
   const hasShipping = Boolean(
     shippingQuote?.available
   );
@@ -78,7 +75,7 @@ function OrderSummary({
 
               <strong>
                 $
-                {shippingCost.toLocaleString(
+                {Number(shippingCost).toLocaleString(
                   "es-CL"
                 )}
               </strong>
