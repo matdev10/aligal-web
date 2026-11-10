@@ -6,7 +6,12 @@ import {
   getCommunesByProvince,
 } from "../../services/geoApiService";
 
-import "./ShippingForm.css";
+import { MapPin } from "lucide-react";
+
+import { glassCard, inputClass, labelClass } from "../ui/glass";
+import SectionHeader from "./SectionHeader";
+
+// NOTA: Ya no importamos "./ShippingForm.css"; todo es Tailwind.
 
 function ShippingForm({ shipping, onChange }) {
   const [regions, setRegions] = useState([]);
@@ -25,20 +30,13 @@ function ShippingForm({ shipping, onChange }) {
         setLoadingRegions(true);
         setError("");
 
-        const data = await getRegionsByCountry(
-          shipping.countryIso || "CL"
-        );
+        const data = await getRegionsByCountry(shipping.countryIso || "CL");
 
         setRegions(data);
       } catch (error) {
-        console.error(
-          "Error cargando regiones:",
-          error
-        );
+        console.error("Error cargando regiones:", error);
 
-        setError(
-          "No se pudieron cargar las regiones."
-        );
+        setError("No se pudieron cargar las regiones.");
       } finally {
         setLoadingRegions(false);
       }
@@ -58,21 +56,13 @@ function ShippingForm({ shipping, onChange }) {
         setLoadingProvinces(true);
         setError("");
 
-        const data =
-          await getProvincesByRegion(
-            shipping.regionId
-          );
+        const data = await getProvincesByRegion(shipping.regionId);
 
         setProvinces(data);
       } catch (error) {
-        console.error(
-          "Error cargando provincias:",
-          error
-        );
+        console.error("Error cargando provincias:", error);
 
-        setError(
-          "No se pudieron cargar las provincias."
-        );
+        setError("No se pudieron cargar las provincias.");
       } finally {
         setLoadingProvinces(false);
       }
@@ -92,21 +82,13 @@ function ShippingForm({ shipping, onChange }) {
         setLoadingCommunes(true);
         setError("");
 
-        const data =
-          await getCommunesByProvince(
-            shipping.provinceId
-          );
+        const data = await getCommunesByProvince(shipping.provinceId);
 
         setCommunes(data);
       } catch (error) {
-        console.error(
-          "Error cargando comunas:",
-          error
-        );
+        console.error("Error cargando comunas:", error);
 
-        setError(
-          "No se pudieron cargar las comunas."
-        );
+        setError("No se pudieron cargar las comunas.");
       } finally {
         setLoadingCommunes(false);
       }
@@ -116,34 +98,31 @@ function ShippingForm({ shipping, onChange }) {
   }, [shipping.provinceId]);
 
   return (
-    <section className="shipping-form">
-
-      <div className="shipping-form__header">
-        <span>Despacho</span>
-
-        <h2>
-          Dirección de entrega
-        </h2>
-
-        <p>
-          Ingresa la dirección donde quieres
-          recibir tu pedido.
-        </p>
-      </div>
+    <section className={glassCard}>
+      <SectionHeader
+        step={2}
+        label="Despacho"
+        title="Dirección de entrega"
+        text="Ingresa la dirección donde quieres recibir tu pedido."
+        Icon={MapPin}
+      />
 
       {error && (
-        <div className="shipping-form__error">
+        <div
+          role="alert"
+          className="mb-4 rounded-2xl border border-rose-400/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-700"
+        >
           {error}
         </div>
       )}
 
-      <div className="shipping-form__fields">
-
-        <div className="shipping-form__field">
-          <label htmlFor="shipping-address">
+      {/* - Móvil: un campo por fila
+          - sm: región / provincia / comuna en columnas */}
+      <div className="grid gap-4 sm:grid-cols-3">
+        <div className="sm:col-span-3">
+          <label htmlFor="shipping-address" className={labelClass}>
             Dirección
           </label>
-
           <input
             id="shipping-address"
             type="text"
@@ -152,116 +131,93 @@ function ShippingForm({ shipping, onChange }) {
             value={shipping.address}
             onChange={onChange}
             autoComplete="street-address"
+            className={inputClass}
           />
         </div>
 
-        <div className="shipping-form__field">
-          <label htmlFor="shipping-region">
+        <div>
+          <label htmlFor="shipping-region" className={labelClass}>
             Región
           </label>
-
           <select
             id="shipping-region"
             name="regionId"
             value={shipping.regionId}
             onChange={onChange}
             disabled={loadingRegions}
+            className={inputClass}
           >
             <option value="">
-              {loadingRegions
-                ? "Cargando regiones..."
-                : "Selecciona una región"}
+              {loadingRegions ? "Cargando regiones..." : "Selecciona una región"}
             </option>
-
             {regions.map((region) => (
-              <option
-                key={region.id}
-                value={region.id}
-              >
+              <option key={region.id} value={region.id}>
                 {region.name}
               </option>
             ))}
           </select>
         </div>
 
-        <div className="shipping-form__field">
-          <label htmlFor="shipping-province">
+        <div>
+          <label htmlFor="shipping-province" className={labelClass}>
             Provincia
           </label>
-
           <select
             id="shipping-province"
             name="provinceId"
             value={shipping.provinceId}
             onChange={onChange}
-            disabled={
-              !shipping.regionId ||
-              loadingProvinces
-            }
+            disabled={!shipping.regionId || loadingProvinces}
+            className={inputClass}
           >
             <option value="">
-              {loadingProvinces
-                ? "Cargando provincias..."
-                : "Selecciona una provincia"}
+              {loadingProvinces ? "Cargando provincias..." : "Selecciona una provincia"}
             </option>
-
             {provinces.map((province) => (
-              <option
-                key={province.id}
-                value={province.id}
-              >
+              <option key={province.id} value={province.id}>
                 {province.name}
               </option>
             ))}
           </select>
         </div>
 
-        <div className="shipping-form__field">
-          <label htmlFor="shipping-commune">
+        <div>
+          <label htmlFor="shipping-commune" className={labelClass}>
             Comuna
           </label>
-
           <select
             id="shipping-commune"
             name="communeId"
             value={shipping.communeId}
             onChange={onChange}
-            disabled={
-              !shipping.provinceId ||
-              loadingCommunes
-            }
+            disabled={!shipping.provinceId || loadingCommunes}
+            className={inputClass}
           >
             <option value="">
-              {loadingCommunes
-                ? "Cargando comunas..."
-                : "Selecciona una comuna"}
+              {loadingCommunes ? "Cargando comunas..." : "Selecciona una comuna"}
             </option>
-
             {communes.map((commune) => (
-              <option
-                key={commune.id}
-                value={commune.id}
-              >
+              <option key={commune.id} value={commune.id}>
                 {commune.name}
               </option>
             ))}
           </select>
         </div>
 
-        <div className="shipping-form__field">
-          <label htmlFor="shipping-notes">
-            Notas adicionales
+        <div className="sm:col-span-3">
+          <label htmlFor="shipping-notes" className={labelClass}>
+            Notas adicionales <span className="text-ink/35">(opcional)</span>
           </label>
-
           <textarea
             id="shipping-notes"
             name="notes"
+            rows="3"
             placeholder="Ej: dejar en conserjería, referencias de entrega..."
             value={shipping.notes}
             onChange={onChange}
+            className={`${inputClass} resize-none`}
           />
         </div>
-
       </div>
     </section>
   );

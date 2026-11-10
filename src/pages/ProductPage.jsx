@@ -1,13 +1,17 @@
 import Product from "../components/Product";
+import Reviews from "../components/Reviews";
+import SiteFooter from "../components/SiteFooter";
 
-
-import "../style/pages/product-page.css";
+// Página única de producto y compra (/producto; /comprar redirige aquí).
+// Incluye las reseñas y el footer que antes estaban en BuyPage.
 
 function ProductPage() {
   return (
-    <main className="product-page">
+    <>
       <Product />
-    </main>
+      <Reviews />
+      <SiteFooter />
+    </>
   );
 }
 

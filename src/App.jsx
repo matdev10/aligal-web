@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -11,7 +11,6 @@ import WellnessArticlePage from "./pages/WellnessArticlePage";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import ProductPage from "./pages/ProductPage";
-import BuyPage from "./pages/BuyPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 import CartDrawer from "./components/cart/CartDrawer";
@@ -56,7 +55,8 @@ function App() {
         />
 
         <Route path="/producto" element={<ProductPage />} />
-        <Route path="/comprar" element={<BuyPage />} />
+        {/* /comprar quedó unificada con la nueva página de producto */}
+        <Route path="/comprar" element={<Navigate to="/producto" replace />} />
         <Route path="/carrito" element={<CartPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
 
